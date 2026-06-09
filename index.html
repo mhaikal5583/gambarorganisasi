@@ -21,6 +21,11 @@
             --card-active: #1e293b;
             --card-border-active: #38bdf8;
             --success-green: #10b981;
+            
+            /* Warna Saiz Cetakan */
+            --color-4r: #15803d;
+            --color-6rw: #1d4ed8;
+            --color-8rw: #6b21a8;
         }
 
         * {
@@ -40,7 +45,7 @@
         }
 
         .form-container {
-            max-width: 1200px; /* Diperbanyakkan untuk memuatkan susunan dashboard */
+            max-width: 1200px;
             margin: 0 auto;
         }
 
@@ -123,7 +128,109 @@
             transition: all 0.2s ease;
         }
 
-        /* Dashboard Flex Layout untuk jualan */
+        /* Price Dashboard Cards Styles */
+        .price-dashboard {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        @media (max-width: 900px) {
+            .price-dashboard { grid-template-columns: 1fr; }
+        }
+
+        .price-card {
+            background-color: #ffffff;
+            color: #1e293b;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            border: 2px solid transparent;
+        }
+
+        .price-card-4r { border-color: var(--color-4r); }
+        .price-card-6rw { border-color: var(--color-6rw); }
+        .price-card-8rw { border-color: var(--color-8rw); }
+
+        .price-card-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 12px;
+        }
+
+        .size-badge {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #ffffff;
+            padding: 5px 15px;
+            border-radius: 6px;
+            line-height: 1;
+        }
+
+        .badge-4r { background-color: var(--color-4r); }
+        .badge-6rw { background-color: var(--color-6rw); }
+        .badge-8rw { background-color: var(--color-8rw); }
+
+        .size-meta h5 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #475569;
+            text-transform: uppercase;
+            margin-bottom: 2px;
+        }
+
+        .size-meta p {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .size-meta span {
+            font-size: 0.85rem;
+            color: #64748b;
+            display: block;
+        }
+
+        .price-card-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            text-align: center;
+        }
+
+        .price-info-block {
+            padding: 10px 5px;
+        }
+
+        .price-info-block:first-child {
+            border-right: 1px dashed #cbd5e1;
+        }
+
+        .price-info-label {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #64748b;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .price-card-4r .price-info-amount { color: var(--color-4r); }
+        .price-card-6rw .price-info-amount { color: var(--color-6rw); }
+        .price-card-8rw .price-info-amount { color: var(--color-8rw); }
+
+        .price-info-promo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #b91c1c;
+        }
+
+        /* Dashboard Flex Layout */
         .dashboard-grid {
             display: flex;
             gap: 20px;
@@ -158,7 +265,7 @@
             padding-bottom: 8px;
         }
 
-        /* 1. Grid Kategori Ikon */
+        /* Grid Kategori Ikon */
         .category-icon-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -176,43 +283,12 @@
             position: relative;
         }
 
-        .cat-icon-card:hover {
-            border-color: var(--gold-accent);
-        }
+        .cat-icon-card:hover { border-color: var(--gold-accent); }
+        .cat-icon-card.active { background-color: var(--card-active); border-color: var(--card-border-active); }
+        .cat-icon-placeholder { font-size: 1.8rem; margin-bottom: 5px; }
+        .cat-title-text { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; }
 
-        .cat-icon-card.active {
-            background-color: var(--card-active);
-            border-color: var(--card-border-active);
-        }
-
-        .cat-badge {
-            position: absolute;
-            top: 5px;
-            left: 5px;
-            background-color: #3b82f6;
-            color: #fff;
-            font-size: 0.75rem;
-            font-weight: 700;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .cat-icon-placeholder {
-            font-size: 1.8rem;
-            margin-bottom: 5px;
-        }
-
-        .cat-title-text {
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-
-        /* 2. Sesi UI */
+        /* Sesi UI */
         .sesi-container {
             display: flex;
             flex-direction: column;
@@ -233,15 +309,11 @@
             gap: 5px;
         }
 
-        .sesi-card.active {
-            background-color: var(--card-active);
-            border-color: #10b981;
-        }
-
+        .sesi-card.active { background-color: var(--card-active); border-color: #10b981; }
         .sesi-icon { font-size: 1.8rem; }
         .sesi-text { font-size: 0.95rem; font-weight: 700; text-transform: uppercase; }
 
-        /* 4. Pose UI */
+        /* Pose UI */
         .pose-flex-container {
             display: flex;
             gap: 10px;
@@ -268,9 +340,7 @@
             gap: 5px;
         }
 
-        .pose-header input[type="checkbox"] {
-            accent-color: var(--card-border-active);
-        }
+        .pose-header input[type="checkbox"] { accent-color: var(--card-border-active); }
 
         .pose-img-placeholder {
             width: 100%;
@@ -284,12 +354,6 @@
             font-size: 0.8rem;
             color: var(--text-muted);
             overflow: hidden;
-        }
-
-        .pose-img-placeholder img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
 
         .size-qty-control-row {
@@ -321,13 +385,7 @@
         }
 
         .qty-stepper button:hover { background-color: #2e3446; }
-        
-        .qty-stepper span {
-            width: 24px;
-            text-align: center;
-            font-weight: 700;
-            color: #fff;
-        }
+        .qty-stepper span { width: 24px; text-align: center; font-weight: 700; color: #fff; }
 
         /* Live Widget Summary */
         .live-widget-panel {
@@ -367,9 +425,10 @@
 
         .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
         .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-        @media (max-width: 768px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+        @media (max-width: 1024px) { .grid-3 { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
 
-        /* Cart and Confirmation Table View */
+        /* Cart Table View */
         .cart-table {
             width: 100%;
             border-collapse: collapse;
@@ -381,6 +440,7 @@
             border: 1px solid var(--border-solid);
             padding: 12px;
             text-align: left;
+            vertical-align: middle; 
         }
 
         .cart-table th {
@@ -407,57 +467,69 @@
             overflow: hidden;
         }
 
-        .cart-thumb img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
         .cart-action-container {
             display: flex;
             gap: 10px;
             margin-top: 20px;
         }
 
-        .cart-action-btn {
-            flex: 1;
-            padding: 12px;
-            border: 1px solid var(--border-solid);
-            background: none;
-            color: #fff;
+        /* Tambah Ke Troli Button (Outlined sky blue style) */
+        .cart-btn {
+            background: transparent;
+            color: #38bdf8;
+            border: 1px solid var(--card-border-active);
+            padding: 14px;
+            font-size: 1rem;
+            font-weight: 700;
             border-radius: 6px;
             cursor: pointer;
-            font-weight: 700;
-            font-size: 0.95rem;
+            transition: background-color 0.2s, color 0.2s;
+            width: 100%;
+            margin-top: 10px;
+            text-transform: uppercase;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
         }
 
-        .cart-action-btn.primary {
-            background-color: var(--gold-accent);
-            color: #000;
-            border: none;
+        .cart-btn:hover {
+            background-color: rgba(56, 189, 248, 0.1);
         }
 
+        /* Kosongkan Troli Button (Outlined transparent red) */
         .cart-action-btn.danger {
-            border-color: var(--alert-red-border);
+            flex: 1;
+            padding: 14px;
+            border: 1px solid var(--alert-red-border);
+            background: transparent;
             color: var(--alert-red-text);
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: background-color 0.2s, color 0.2s;
+            width: 100%;
         }
 
-        .payment-instruction {
-            font-size: 1.05rem;
-            background: var(--input-bg);
-            padding: 18px 22px;
-            border-radius: 8px;
-            border: 1px dashed var(--border-solid);
+        .cart-action-btn.danger:hover {
+            background-color: rgba(239, 68, 68, 0.1);
         }
 
-        .payment-instruction.highlight-red {
-            border-color: var(--alert-red-border);
-            color: var(--alert-red-text);
-            background: var(--alert-red-bg);
+        .remove-btn {
+            background: none;
+            border: none;
+            color: var(--alert-red-border);
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
         }
 
         .submit-container { margin-top: 50px; margin-bottom: 100px; text-align: center; }
@@ -495,9 +567,10 @@
 
         <form id="googleSheetForm">
 
+            <!-- 1. Maklumat Pelajar (Updated to include Nama Kelas dropdown) -->
             <div class="section-card">
                 <div class="section-title">1. Maklumat Pelajar</div>
-                <div class="grid-2">
+                <div class="grid-3">
                     <div class="form-group">
                         <label for="nama-pelajar">Nama Pelajar (Nama Penuh)</label>
                         <input type="text" id="nama-pelajar" name="nama-pelajar" placeholder="Masukkan nama penuh pelajar" required>
@@ -513,11 +586,38 @@
                             <option value="Tingkatan 5">Tingkatan 5</option>
                         </select>
                     </div>
+                    <div class="form-group">
+                        <label for="nama-kelas-pelajar">Nama Kelas</label>
+                        <select id="nama-kelas-pelajar" name="nama-kelas-pelajar" required>
+                            <option value="" disabled selected>Sila Pilih Nama Kelas</option>
+                            <option value="Akik">AKIK</option>
+                            <option value="Ametis">AMETIS</option>
+                            <option value="Baiduri">BAIDURI</option>
+                            <option value="Berlian">BERLIAN</option>
+                            <option value="Delima">DELIMA</option>
+                            <option value="Firus">FIRUS</option>
+                            <option value="Imtiyaz">IMTIYAZ</option>
+                            <option value="Intan">INTAN</option>
+                            <option value="Jade">JADE</option>
+                            <option value="Jauhar">JAUHAR</option>
+                            <option value="Kuarsa">KUARSA</option>
+                            <option value="Mutiara">MUTIARA</option>
+                            <option value="Mumtaz">MUMTAZ</option>
+                            <option value="Nilam">NILAM</option>
+                            <option value="Opal">OPAL</option>
+                            <option value="Qamar">QAMAR</option>
+                            <option value="Rubi">RUBI</option>
+                            <option value="Topaz">TOPAZ</option>
+                            <option value="Zamrud">ZAMRUD</option>
+                            <option value="Zirkon">ZIRKON</option>
+                        </select>
+                    </div>
                 </div>
             </div>
 
+            <!-- 2. Maklumat Penjaga (Title changed from Maklumat Lain to Maklumat Penjaga) -->
             <div class="section-card">
-                <div class="section-title">2. Maklumat Lain</div>
+                <div class="section-title">2. Maklumat Penjaga</div>
                 <div class="form-group">
                     <label for="nama-guru">Nama Guru (Jika nak buat pembelian)</label>
                     <input type="text" id="nama-guru" name="nama-guru" placeholder="Masukkan nama penuh guru (jika berkaitan)">
@@ -542,30 +642,91 @@
                 </div>
             </div>
 
+            <!-- 3. Keterangan Saiz & Harga -->
             <div class="section-card">
-                <div class="section-title">3. Rujukan Gambar &amp; Harga</div>
-                <div class="grid-2">
-                    <div class="qr-card-wrapper">
-                        <div class="qr-box-inner">
-                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://drive.google.com/drive/folders/1eIFsQai-I8Rg08YxAh8Cqz5xLrnJNPib" alt="QR Drive Rujukan">
+                <div class="section-title">3. Keterangan Saiz &amp; Harga</div>
+                <div style="background: var(--input-bg); border: 1px solid var(--border-solid); padding: 15px 20px; border-radius: 8px; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                    <span>🔗</span>
+                    <a href="https://drive.google.com/drive/folders/1eIFsQai-I8Rg08YxAh8Cqz5xLrnJNPib" target="_blank" style="color: var(--gold-accent); text-decoration: underline; font-weight: 700; font-size: 1.05rem;">
+                        Klik Sini Untuk Folder Rujukan Gambar Penuh Organisasi
+                    </a>
+                </div>
+                
+                <div class="price-dashboard">
+                    <!-- CARD 4R -->
+                    <div class="price-card price-card-4r">
+                        <div class="price-card-header">
+                            <div class="size-badge badge-4r">4R</div>
+                            <div class="size-meta">
+                                <h5>Saiz Cetakan</h5>
+                                <p>6 in x 4 in</p>
+                                <span>(15.2 cm x 10.2 cm)</span>
+                            </div>
                         </div>
-                        <div class="qr-label-text">QR Link Untuk Rujukan Gambar Dan Harga</div>
+                        <div class="price-card-body">
+                            <div class="price-info-block">
+                                <div class="price-info-label">Harga Seunit</div>
+                                <div class="price-info-amount">RM 8.00<span style="font-size:0.85rem; font-weight:normal; color:#64748b;"> /pcs</span></div>
+                            </div>
+                            <div class="price-info-block">
+                                <div class="price-info-label">Beli 3 Keping</div>
+                                <div class="price-info-promo">RM 15.00</div>
+                            </div>
+                        </div>
                     </div>
-                    <div style="background: var(--input-bg); border: 1px solid var(--border-solid); padding: 20px; border-radius: 8px; display: flex; flex-direction: column; justify-content: center;">
-                        <h4 style="color: var(--gold-accent); margin-bottom: 12px; text-transform: uppercase; font-weight: 700;">Senarai Harga Jualan Gambar (4R):</h4>
-                        <ul style="margin-left: 20px; color: var(--text-muted); font-size: 1.05rem; display: flex; flex-direction: column; gap: 6px;">
-                            <li>1 Pcs : RM 8.00</li>
-                            <li>2 Pcs : RM 16.00</li>
-                            <li>3 Pcs : RM 15.00 (Potongan Harga Murah!)</li>
-                        </ul>
+
+                    <!-- CARD 6RW -->
+                    <div class="price-card price-card-6rw">
+                        <div class="price-card-header">
+                            <div class="size-badge badge-6rw">6RW</div>
+                            <div class="size-meta">
+                                <h5>Saiz Cetakan</h5>
+                                <p>9 in x 6 in</p>
+                                <span>(22.9 cm x 15.2 cm)</span>
+                            </div>
+                        </div>
+                        <div class="price-card-body">
+                            <div class="price-info-block">
+                                <div class="price-info-label">Harga Seunit</div>
+                                <div class="price-info-amount">RM 10.00<span style="font-size:0.85rem; font-weight:normal; color:#64748b;"> /pcs</span></div>
+                            </div>
+                            <div class="price-info-block">
+                                <div class="price-info-label">Beli 3 Keping</div>
+                                <div class="price-info-promo">RM 25.00</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CARD 8RW -->
+                    <div class="price-card price-card-8rw">
+                        <div class="price-card-header">
+                            <div class="size-badge badge-8rw">8RW</div>
+                            <div class="size-meta">
+                                <h5>Saiz Cetakan</h5>
+                                <p>12 in x 8 in</p>
+                                <span>(30.5 cm x 20.3 cm)</span>
+                            </div>
+                        </div>
+                        <div class="price-card-body">
+                            <div class="price-info-block">
+                                <div class="price-info-label">Harga Seunit</div>
+                                <div class="price-info-amount">RM 15.00<span style="font-size:0.85rem; font-weight:normal; color:#64748b;"> /pcs</span></div>
+                            </div>
+                            <div class="price-info-block">
+                                <div class="price-info-label">Beli 3 Keping</div>
+                                <div class="price-info-promo">RM 35.00</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
+            <!-- 4. Jualan / Pilihan Gambar -->
             <div class="section-card">
                 <div class="section-title">4. Jualan / Pilihan Gambar</div>
                 <div class="dashboard-grid">
                     
+                    <!-- Box 1: Pilih Kategori -->
                     <div class="dash-col-1">
                         <div class="dash-box">
                             <div class="dash-box-title">1. Pilih Kategori</div>
@@ -583,6 +744,7 @@
                         </div>
                     </div>
 
+                    <!-- Box 2: Pilih Sesi -->
                     <div class="dash-col-2">
                         <div class="dash-box">
                             <div class="dash-box-title">2. Pilih Sesi</div>
@@ -599,6 +761,7 @@
                         </div>
                     </div>
 
+                    <!-- Box 3: Pilih Unit -->
                     <div class="dash-col-3">
                         <div class="dash-box">
                             <div class="dash-box-title">3. Pilih Unit / Nama Kecil</div>
@@ -608,14 +771,16 @@
                         </div>
                     </div>
 
+                    <!-- Box 4: Pilih Pose, Saiz & Kuantiti -->
                     <div class="dash-col-4">
                         <div class="dash-box">
                             <div class="dash-box-title">4. Pilih Pose, Saiz &amp; Kuantiti</div>
                             <div class="pose-flex-container">
                                 
+                                <!-- FORMAL -->
                                 <div class="pose-column-box" data-pose="Formal">
                                     <div class="pose-header"><input type="checkbox" id="check-formal"> FORMAL</div>
-                                    <div class="pose-img-placeholder"><img src="formal-thumb.jpg" alt="Formal" onerror="this.style.display='none'">👔</div>
+                                    <div class="pose-img-placeholder">👔</div>
                                     <div class="size-qty-control-row">
                                         <span>4R</span>
                                         <div class="qty-stepper">
@@ -642,9 +807,10 @@
                                     </div>
                                 </div>
 
+                                <!-- FREESTYLE -->
                                 <div class="pose-column-box" data-pose="Freestyle">
                                     <div class="pose-header"><input type="checkbox" id="check-freestyle"> FREESTYLE</div>
-                                    <div class="pose-img-placeholder"><img src="freestyle-thumb.jpg" alt="Freestyle" onerror="this.style.display='none'">😎</div>
+                                    <div class="pose-img-placeholder">😎</div>
                                     <div class="size-qty-control-row">
                                         <span>4R</span>
                                         <div class="qty-stepper">
@@ -671,9 +837,10 @@
                                     </div>
                                 </div>
 
+                                <!-- PROPS -->
                                 <div class="pose-column-box" data-pose="Props">
                                     <div class="pose-header"><input type="checkbox" id="check-props"> PROPS</div>
-                                    <div class="pose-img-placeholder"><img src="props-thumb.jpg" alt="Props" onerror="this.style.display='none'">🎓</div>
+                                    <div class="pose-img-placeholder">🎓</div>
                                     <div class="size-qty-control-row">
                                         <span>4R</span>
                                         <div class="qty-stepper">
@@ -702,21 +869,23 @@
 
                             </div>
 
+                            <!-- Live Calculation Widget -->
                             <div class="live-widget-panel">
-                                <div class="live-widget-header">Ringkasan Harga (Gabung Semua Pose Bagi Saiz Yang Sama)</div>
+                                <div class="live-widget-header">Ringkasan Harga Pilihan Semasa</div>
                                 <div class="live-widget-row"><span>4R : <span id="widget-4r-count">0</span> keping</span><span id="widget-4r-price">RM0.00</span></div>
                                 <div class="live-widget-row"><span>6RW : <span id="widget-6rw-count">0</span> keping</span><span id="widget-6rw-price">RM0.00</span></div>
                                 <div class="live-widget-row"><span>8RW : <span id="widget-8rw-count">0</span> keping</span><span id="widget-8rw-price">RM0.00</span></div>
                                 <div class="live-widget-row total"><span>JUMLAH</span><span id="widget-total-price">RM0.00</span></div>
                             </div>
 
-                            <button type="button" class="cart-btn" id="addToCartBtn" style="background-color: #38bdf8; color: #000;">+ Tambah Ke Troli</button>
+                            <button type="button" class="cart-btn" id="addToCartBtn">📥 Tambah Ke Troli</button>
                         </div>
                     </div>
 
                 </div>
             </div>
 
+            <!-- 5. Pengesahan Pembelian (Troli) -->
             <div class="section-card">
                 <div class="section-title">5. Troli Tempahan</div>
                 <div style="overflow-x: auto;">
@@ -724,19 +893,21 @@
                         <thead>
                             <tr>
                                 <th>Item</th>
-                                <th>Pose</th>
+                                <th>Sesi</th>
+                                <th>Style</th>
                                 <th>Saiz</th>
                                 <th>Kuantiti</th>
                                 <th>Harga</th>
-                                <th style="text-align: center;">Tindakan</th>
+                                <th style="text-align: center;">Buang</th>
                             </tr>
                         </thead>
                         <tbody id="cartItemsContainer">
-                            <tr id="emptyCartRow"><td colspan="6" style="text-align: center; color: var(--text-muted); padding: 25px 0;">Troli kosong. Sila konfigurasi pilihan di atas dan klik Tambah Ke Troli.</td></tr>
+                            <tr id="emptyCartRow"><td colspan="7" style="text-align: center; color: var(--text-muted); padding: 25px 0;">Troli kosong. Sila konfigurasi pilihan di atas dan klik Tambah Ke Troli.</td></tr>
                         </tbody>
                     </table>
                 </div>
 
+                <!-- Global Pricing Summary Box -->
                 <div class="live-widget-panel" style="margin-top: 25px; background-color: #111420;">
                     <div class="live-widget-header" style="color: var(--gold-accent);">Ringkasan Harga Global (Mengikut Saiz Keseluruhan)</div>
                     <div class="live-widget-row"><span>4R : <span id="global-4r-count">0</span> keping</span><span id="global-4r-price">RM0.00</span></div>
@@ -750,6 +921,7 @@
                 </div>
             </div>
 
+            <!-- 6. Peringatan -->
             <div class="section-card">
                 <div class="section-title">6. Peringatan</div>
                 <div class="payment-instruction highlight-red">
@@ -759,15 +931,16 @@
                 </div>
             </div>
 
+            <!-- 7. Cara Pembayaran -->
             <div class="section-card">
                 <div class="section-title">7. Cara Pembayaran</div>
                 <div class="grid-3" style="margin-bottom: 30px;">
                     <div class="qr-card-wrapper">
-                        <div class="qr-box-inner"><img src="tng.jpeg" alt="TNG QR" onerror="this.style.display='none'"></div>
+                        <div class="qr-box-inner">🖼️</div>
                         <div class="qr-label-text">TNG eWallet QR</div>
                     </div>
                     <div class="qr-card-wrapper">
-                        <div class="qr-box-inner"><img src="bankislam.jpeg" alt="Bank Islam QR" onerror="this.style.display='none'"></div>
+                        <div class="qr-box-inner">🖼️</div>
                         <div class="qr-label-text">Bank Islam QR</div>
                     </div>
                     <div style="background: var(--input-bg); border: 1px solid var(--border-solid); padding: 20px; border-radius: 8px; display: flex; flex-direction: column; justify-content: center; font-size: 0.95rem;">
@@ -786,6 +959,7 @@
                 </div>
             </div>
 
+            <!-- 8. Hubungi Penjual -->
             <div class="section-card">
                 <div class="section-title">8. Hubungi Penjual</div>
                 <div class="payment-instruction" style="border-color: var(--border-solid);">
@@ -808,7 +982,6 @@
     </div>
 
     <script>
-        // Database Organisasi Mengikut Mesej Asal Pengguna
         const databaseKumpulan = {
             "GURU-GURU": [
                 "Pentadbir - Sesi Pagi", "Pentadbir - Sesi Petang", "PPKI - Sesi Pagi", "PPKI - Sesi Petang",
@@ -816,6 +989,19 @@
                 "Kurikulum - Sesi Pagi", "Kurikulum - Sesi Petang", "Guru - Sesi Pagi", "Guru - Sesi Petang",
                 "Kaunseling - Sesi Pagi", "Kaunseling - Sesi Petang", "GKMP - Sesi Pagi", "GKMP - Sesi Petang",
                 "AKP - Sesi Pagi", "AKP - Sesi Petang"
+            ],
+            "BADAN PENGAWAS": [
+                "Pengawas Sekolah (Biru) - Sesi Pagi", "Pengawas Sekolah (Biru) - Sesi Petang",
+                "Pengawas Pusat Sumber Sekolah (PSS) - Sesi Pagi", "Pengawas Pusat Sumber Sekolah (PSS) - Sesi Petang",
+                "Skim Pinjaman Buku Teks (SPBT) - Sesi Pagi", "Skim Pinjaman Buku Teks (SPBT) - Sesi Petang",
+                "Pembimbing Rakan Sebaya (PRS) - Sesi Pagi", "Pembimbing Rakan Sebaya (PRS) - Sesi Petang",
+                "Majlis Ketua Tingkatan - Sesi Pagi", "Majlis Ketua Tingkatan - Sesi Petang",
+                "Koperator Sekolah - Sesi Pagi", "Koperator Sekolah - Sesi Petang",
+                "Quarter Master - Sesi Pagi", "Quarter Master - Sesi Petang",
+                "Pengawas PPKI - Sesi Pagi", "Pengawas PPKI - Sesi Petang",
+                "Pengawas Siaraya - Sesi Pagi", "Pengawas Siaraya - Sesi Petang",
+                "Pengawas Surau - Sesi Pagi", "Pengawas Surau - Sesi Petang",
+                "Skim Lencana Anti Dadah (SLAD) - Sesi Pagi", "Skim Lencana Anti Dadah (SLAD) - Sesi Petang"
             ],
             "BADAN BERUNIFORM": [
                 "KASPA - Sesi Pagi", "KASPA - Sesi Petang", "Pengakap - Sesi Pagi", "Pengakap - Sesi Petang",
@@ -834,6 +1020,24 @@
                 "STEM - Sesi Pagi", "STEM - Sesi Petang", "Sains Rumah Tangga (SRT) - Sesi Pagi", "Sains Rumah Tangga (SRT) - Sesi Petang",
                 "Keselamatan Jalan Raya PPKI - Sesi Pagi", "Keselamatan Jalan Raya PPKI - Sesi Petang",
                 "Kelas Kemahiran Quran (KKQ) - Sesi Pagi", "Kelas Kemahiran Quran (KKQ) - Sesi Petang"
+            ],
+            "KELAB SEKOLAH": [
+                "Kebudayaan & Kompang - Sesi Pagi", "Kebudayaan & Kompang - Sesi Petang", "Keceriaan - Sesi Pagi", "Keceriaan - Sesi Petang",
+                "Keselamatan Jalan Raya - Sesi Pagi", "Keselamatan Jalan Raya - Sesi Petang", "Kitar Semula - Sesi Pagi", "Kitar Semula - Sesi Petang",
+                "Komputer - Sesi Pagi", "Komputer - Sesi Petang", "Koperasi - Sesi Pagi", "Koperasi - Sesi Petang",
+                "Malaysiaku & Rukunegara - Sesi Pagi", "Malaysiaku & Rukunegara - Sesi Petang", "Media & Fotografi - Sesi Pagi", "Media & Fotografi - Sesi Petang",
+                "Pencegah Jenayah - Sesi Pagi", "Pencegah Jenayah - Sesi Petang", "Robotik - Sesi Pagi", "Robotik - Sesi Petang",
+                "Kerjaya - Sesi Pagi", "Kerjaya - Sesi Petang", "ELIT - Sesi Pagi", "ELIT - Sesi Petang"
+            ],
+            "RUMAH SUKAN": [
+                "Merah - Sesi Pagi", "Merah - Sesi Petang", "Biru - Sesi Pagi", "Biru - Sesi Petang",
+                "Kuning - Sesi Pagi", "Kuning - Sesi Petang", "Hijau - Sesi Pagi", "Hijau - Sesi Petang",
+                "Ungu - Sesi Pagi", "Ungu - Sesi Petang"
+            ],
+            "SQUAD SEKOLAH": [
+                "Kebersihan, Kesihatan, Keselamatan (SKUAD 3K) - Sesi Pagi", "Kebersihan, Kesihatan, Keselamatan (SKUAD 3K) - Sesi Petang",
+                "Denggi - Sesi Pagi", "Denggi - Sesi Petang", "PJPK - Sesi Pagi", "PJPK - Sesi Petang",
+                "PPDa - Sesi Pagi", "PPDa - Sesi Petang", "Majalah - Sesi Pagi", "Majalah - Sesi Petang"
             ],
             "PASUKAN SEKOLAH": [
                 "Bola Sepak - Sesi Pagi", "Bola Sepak - Sesi Petang", "Bola Tampar - Sesi Pagi", "Bola Tampar - Sesi Petang",
@@ -858,46 +1062,13 @@
                 "Kompang - Sesi Pagi", "Kompang - Sesi Petang", "Nasyid - Sesi Pagi", "Nasyid - Sesi Petang",
                 "Buletin Sekolah - Sesi Pagi", "Buletin Sekolah - Sesi Petang", "Robotik - Sesi Pagi", "Robotik - Sesi Petang",
                 "Flashmob Sekolah - Sesi Pagi", "Flashmob Sekolah - Sesi Petang", "Hoki - Sesi Pagi", "Hoki - Sesi Petang"
-            ],
-            "KELAB SEKOLAH": [
-                "Kebudayaan & Kompang - Sesi Pagi", "Kebudayaan & Kompang - Sesi Petang", "Keceriaan - Sesi Pagi", "Keceriaan - Sesi Petang",
-                "Keselamatan Jalan Raya - Sesi Pagi", "Keselamatan Jalan Raya - Sesi Petang", "Kitar Semula - Sesi Pagi", "Kitar Semula - Sesi Petang",
-                "Komputer - Sesi Pagi", "Komputer - Sesi Petang", "Koperasi - Sesi Pagi", "Koperasi - Sesi Petang",
-                "Malaysiaku & Rukunegara - Sesi Pagi", "Malaysiaku & Rukunegara - Sesi Petang", "Media & Fotografi - Sesi Pagi", "Media & Fotografi - Sesi Petang",
-                "Pencegah Jenayah - Sesi Pagi", "Pencegah Jenayah - Sesi Petang", "Robotik - Sesi Pagi", "Robotik - Sesi Petang",
-                "Kerjaya - Sesi Pagi", "Kerjaya - Sesi Petang", "ELIT - Sesi Pagi", "ELIT - Sesi Petang"
-            ],
-            "BADAN PENGAWAS": [
-                "Pengawas Sekolah (Biru) - Sesi Pagi", "Pengawas Sekolah (Biru) - Sesi Petang",
-                "Pengawas Pusat Sumber Sekolah (PSS) - Sesi Pagi", "Pengawas Pusat Sumber Sekolah (PSS) - Sesi Petang",
-                "Skim Pinjaman Buku Teks (SPBT) - Sesi Pagi", "Skim Pinjaman Buku Teks (SPBT) - Sesi Petang",
-                "Pembimbing Rakan Sebaya (PRS) - Sesi Pagi", "Pembimbing Rakan Sebaya (PRS) - Sesi Petang",
-                "Majlis Ketua Tingkatan - Sesi Pagi", "Majlis Ketua Tingkatan - Sesi Petang",
-                "Koperator Sekolah - Sesi Pagi", "Koperator Sekolah - Sesi Petang",
-                "Quarter Master - Sesi Pagi", "Quarter Master - Sesi Petang",
-                "Pengawas PPKI - Sesi Pagi", "Pengawas PPKI - Sesi Petang",
-                "Pengawas Siaraya - Sesi Pagi", "Pengawas Siaraya - Sesi Petang",
-                "Pengawas Surau - Sesi Pagi", "Pengawas Surau - Sesi Petang",
-                "Skim Lencana Anti Dadah (SLAD) - Sesi Pagi", "Skim Lencana Anti Dadah (SLAD) - Sesi Petang"
-            ],
-            "RUMAH SUKAN": [
-                "Merah - Sesi Pagi", "Merah - Sesi Petang", "Biru - Sesi Pagi", "Biru - Sesi Petang",
-                "Kuning - Sesi Pagi", "Kuning - Sesi Petang", "Hijau - Sesi Pagi", "Hijau - Sesi Petang",
-                "Ungu - Sesi Pagi", "Ungu - Sesi Petang"
-            ],
-            "SQUAD SEKOLAH": [
-                "Kebersihan, Kesihatan, Keselamatan (SKUAD 3K) - Sesi Pagi", "Kebersihan, Kesihatan, Keselamatan (SKUAD 3K) - Sesi Petang",
-                "Denggi - Sesi Pagi", "Denggi - Sesi Petang", "PJPK - Sesi Pagi", "PJPK - Sesi Petang",
-                "PPDa - Sesi Pagi", "PPDa - Sesi Petang", "Majalah - Sesi Pagi", "Majalah - Sesi Petang"
             ]
         };
 
-        // State Dashboard variables
         let selectedCategory = "";
         let selectedSession = "Sesi Pagi";
         let cart = [];
 
-        // DOM Elements mapping
         const catCards = document.querySelectorAll('.cat-icon-card');
         const sesiCards = document.querySelectorAll('.sesi-card');
         const unitSelect = document.getElementById('select-unit-nama');
@@ -906,7 +1077,6 @@
         const grandTotalBox = document.getElementById('grand-total-box');
         const hiddenCartData = document.getElementById('hiddenCartData');
 
-        // 1. Kategori Klik Handler
         catCards.forEach(card => {
             card.addEventListener('click', function() {
                 catCards.forEach(c => c.classList.remove('active'));
@@ -916,7 +1086,6 @@
             });
         });
 
-        // 2. Sesi Klik Handler
         sesiCards.forEach(card => {
             card.addEventListener('click', function() {
                 sesiCards.forEach(s => s.classList.remove('active'));
@@ -926,18 +1095,15 @@
             });
         });
 
-        // Tapis & Render Senarai Dropdown Unit mengikut Kategori + Sesi
         function filterUnitOptions() {
             unitSelect.innerHTML = '<option value="" disabled selected>📦 Pilih Unit / Nama Kecil</option>';
             if (!selectedCategory) return;
 
             const fullList = databaseKumpulan[selectedCategory] || [];
-            // Ambil nama unit bersih sebelum tanda sengkang sesi
             const filteredUnits = fullList
                 .filter(item => item.includes(selectedSession))
                 .map(item => item.split(' - ')[0]);
 
-            // Buat entri unik bagi mengelakkan pertindihan nama
             const uniqueUnits = [...new Set(filteredUnits)];
 
             uniqueUnits.forEach(unit => {
@@ -948,7 +1114,6 @@
             });
         }
 
-        // Stepper Quantity Handler untuk Pose Grid
         document.querySelectorAll('.qty-stepper').forEach(stepper => {
             const minusBtn = stepper.querySelector('.minus-btn');
             const plusBtn = stepper.querySelector('.plus-btn');
@@ -960,7 +1125,7 @@
                 val++;
                 qtyVal.innerText = val;
                 if(val > 0) checkbox.checked = true;
-                calculateLiveWidgetPrices();
+                calculateLivePricesWidget();
             });
 
             minusBtn.addEventListener('click', () => {
@@ -974,26 +1139,36 @@
             });
         });
 
-        // Mengira struktur harga kombo seunit (1=RM8, 2=RM16, 3=RM15, >3 dibahagi pakej kombo)
-        function getBundlePrice(qty) {
+        function getBundlePrice(qty, size) {
             if (qty <= 0) return 0;
             let bundles = Math.floor(qty / 3);
             let remainder = qty % 3;
-            let price = bundles * 15.00;
-            if (remainder === 1) price += 8.00;
-            if (remainder === 2) price += 16.00;
+            let price = 0;
+
+            if (size === '4R') {
+                price = bundles * 15.00;
+                if (remainder === 1) price += 8.00;
+                if (remainder === 2) price += 16.00;
+            } else if (size === '6RW') {
+                price = bundles * 25.00;
+                if (remainder === 1) price += 10.00;
+                if (remainder === 2) price += 20.00;
+            } else if (size === '8RW') {
+                price = bundles * 35.00;
+                if (remainder === 1) price += 15.00;
+                if (remainder === 2) price += 30.00;
+            }
             return price;
         }
 
-        // Hitung Widget Harga Live (Bahagian Kanan Bawah)
         function calculateLivePricesWidget() {
             let count4r = parseInt(document.getElementById('qty-formal-4r').innerText) + parseInt(document.getElementById('qty-freestyle-4r').innerText) + parseInt(document.getElementById('qty-props-4r').innerText);
             let count6rw = parseInt(document.getElementById('qty-formal-6rw').innerText) + parseInt(document.getElementById('qty-freestyle-6rw').innerText) + parseInt(document.getElementById('qty-props-6rw').innerText);
-            let count8rw = parseInt(document.getElementById('qty-formal-8rw').innerText) + parseInt(document.getElementById('qty-freestyle-8rw').innerText) + parseInt(document.getElementById('qty-props-8rw').innerText);
+            let count8rw = parseInt(document.getElementById('qty-formal-8rw').innerText) + parseInt(document.getElementById('qty-props-8rw').innerText) + parseInt(document.getElementById('qty-props-8rw').innerText);
 
-            let price4r = getBundlePrice(count4r);
-            let price6rw = count6rw * 10.00; // Contoh harga saiz 6RW
-            let price8rw = count8rw * 15.00; // Contoh harga saiz 8RW
+            let price4r = getBundlePrice(count4r, '4R');
+            let price6rw = getBundlePrice(count6rw, '6RW');
+            let price8rw = getBundlePrice(count8rw, '8RW');
             let total = price4r + price6rw + price8rw;
 
             document.getElementById('widget-4r-count').innerText = count4r;
@@ -1004,10 +1179,7 @@
             document.getElementById('widget-8rw-price').innerText = "RM" + price8rw.toFixed(2);
             document.getElementById('widget-total-price').innerText = "RM" + total.toFixed(2);
         }
-        // Aliaskan fungsi untuk menggelakkan ralat panggilan balik
-        window.calculateLiveWidgetPrices = calculateLivePricesWidget;
 
-        // Tambah Item Ke Dalam Troli (Add to Cart Handling)
         document.getElementById('addToCartBtn').addEventListener('click', function() {
             const unitName = unitSelect.value;
             if (!selectedCategory || !unitName) {
@@ -1027,11 +1199,11 @@
                         const qty = parseInt(qtyElement.innerText);
                         
                         if (qty > 0) {
-                            // Masukkan sub-pilihan saiz ke dalam struktur array troli global
                             cart.push({
                                 id: Date.now() + Math.random(),
-                                item: unitName,
-                                pose: pose,
+                                item: unitName,            
+                                sesi: selectedSession,     
+                                style: pose,               
                                 saiz: size.toUpperCase(),
                                 kuantiti: qty
                             });
@@ -1046,14 +1218,12 @@
                 return;
             }
 
-            // Reset stepper kuantiti selepas berjaya dimasukkan ke troli
             document.querySelectorAll('.qty-val').forEach(el => el.innerText = "0");
             document.querySelectorAll('.pose-column-box input[type="checkbox"]').forEach(el => el.checked = false);
             calculateLivePricesWidget();
             renderGlobalCart();
         });
 
-        // Render Semua Item Di Dalam Troli Pengesahan Beserta Diskaun Gabungan Global
         function renderGlobalCart() {
             const oldRows = cartItemsContainer.querySelectorAll('tr:not(#emptyCartRow)');
             oldRows.forEach(row => row.remove());
@@ -1073,7 +1243,6 @@
 
             emptyCartRow.style.display = 'none';
 
-            // Hitung jumlah kepingan global mengikut pecahan saiz untuk menentukan diskaun kombo
             let globalCounts = { '4R': 0, '6RW': 0, '8RW': 0 };
             cart.forEach(item => {
                 if (globalCounts[item.saiz] !== undefined) {
@@ -1081,26 +1250,24 @@
                 }
             });
 
-            // Tentukan kadar harga seunit berdasarkan perkongsian saiz gabungan (Sama seperti paparan gambar rujukan)
-            let baseRate = { '4R': 8.00, '6RW': 10.00, '8R': 15.00 };
-            
-            // Render elemen baris jadual troli fizikal
             cart.forEach((item, index) => {
                 let displayPrice = 0;
                 if (item.saiz === '4R') {
-                    // Jika total keping global 4R mencapai kombo (3 keping = RM15), bermakna harga seunit jatuh kepada RM5
                     let rate = (globalCounts['4R'] >= 3) ? 5.00 : 8.00;
                     displayPrice = item.kuantiti * rate;
                 } else if (item.saiz === '6RW') {
-                    displayPrice = item.kuantiti * 10.00;
-                } else {
-                    displayPrice = item.kuantiti * 15.00;
+                    let rate = (globalCounts['6RW'] >= 3) ? 8.333 : 10.00;
+                    displayPrice = item.kuantiti * rate;
+                } else if (item.saiz === '8RW') {
+                    let rate = (globalCounts['8RW'] >= 3) ? 11.666 : 15.00;
+                    displayPrice = item.kuantiti * rate;
                 }
 
                 const tr = document.createElement('tr');
                 tr.innerHTML = `
                     <td><div class="cart-item-flex"><div class="cart-thumb">🖼️</div><strong>${item.item}</strong></div></td>
-                    <td>${item.pose}</td>
+                    <td><span style="color: var(--text-muted); font-weight: 600;">${item.sesi}</span></td>
+                    <td><strong>${item.style}</strong></td>
                     <td><span style="background-color:#2e3446; padding:2px 8px; border-radius:4px; font-weight:700;">${item.saiz}</span></td>
                     <td><strong>${item.kuantiti}</strong></td>
                     <td style="color:#38bdf8; font-weight:700;">RM${displayPrice.toFixed(2)}</td>
@@ -1109,10 +1276,9 @@
                 cartItemsContainer.appendChild(tr);
             });
 
-            // Kemas kini widget pengiraan harga global bertaraf kombo di bawah troli
-            let finalPrice4r = getBundlePrice(globalCounts['4R']);
-            let finalPrice6rw = globalCounts['6RW'] * 10.00;
-            let finalPrice8rw = globalCounts['8RW'] * 15.00;
+            let finalPrice4r = getBundlePrice(globalCounts['4R'], '4R');
+            let finalPrice6rw = getBundlePrice(globalCounts['6RW'], '6RW');
+            let finalPrice8rw = getBundlePrice(globalCounts['8RW'], '8RW');
             let grandTotal = finalPrice4r + finalPrice6rw + finalPrice8rw;
 
             document.getElementById('global-4r-count').innerText = globalCounts['4R'];
@@ -1124,8 +1290,7 @@
             
             grandTotalBox.innerText = "RM" + grandTotal.toFixed(2);
 
-            // Gubah data string invois untuk dihantar ke kepingan baris Google Sheets
-            let stringSummary = cart.map(i => `${i.item} (${i.pose} - ${i.saiz} x ${i.kuantiti})`);
+            let stringSummary = cart.map(i => `${i.item} (${i.sesi}) - [Style: ${i.style}, Saiz: ${i.saiz}, Qty: ${i.kuantiti}]`);
             hiddenCartData.value = stringSummary.join(' | ') + ` [Total: RM${grandTotal.toFixed(2)}]`;
         }
 
@@ -1135,7 +1300,6 @@
         }
         window.removeCartItem = removeCartItem;
 
-        // Kosongkan keseluruhan troli
         document.getElementById('clearCartBtn').addEventListener('click', () => {
             if(confirm('Adakah anda pasti mahu mengosongkan troli?')) {
                 cart = [];
@@ -1143,7 +1307,6 @@
             }
         });
 
-        // Pautan pemprosesan hantaran AJAX borang ke Google App Script
         const scriptURL = 'https://script.google.com/macros/s/AKfycby-OrLkq4tlYBgsYu4ULgCovIi1J3l0TVJvoUuHpzwNfGdDw9nsjLyyi0H5wcumbdhocQ/exec';
         const form = document.getElementById('googleSheetForm');
         const btn = document.getElementById('submitBtn');
@@ -1169,7 +1332,6 @@
                 if (key !== 'resit') formDataParameters[key] = value;
             });
 
-            // Ekstrak nilai angka bersih untuk dihantar ke ruang lajur borang harga sheets
             formDataParameters['jumlah-keseluruhan-rm'] = grandTotalBox.innerText.replace('RM', '');
 
             if (file) {
