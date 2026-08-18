@@ -963,6 +963,17 @@
                     Sila pilih badan organisasi yang anda ingin beli, sila pastikan sesi persekolahan adalah betul.
                 </div>
 
+                <!-- D (1) Ruangan Kumpulan Manual / Tidak Tersenarai -->
+                <div style="background-color: var(--input-bg); border: 1px dashed var(--gold-accent); border-radius: 8px; padding: 16px 20px; margin-bottom: 25px;">
+                    <label for="manual-kumpulan-nama" style="font-size: 1rem; color: var(--gold-accent); margin-bottom: 6px;">
+                        Sekirannya nama kumpulan tidak disenaraikan dalam pilihan, guru/penjaga/murid boleh isikan nama kumpulan secara "manual" di ruangan di bawah.
+                    </label>
+                    <div style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 12px;">
+                        Contoh : Inovasi Petang / Kadet Remaja Sekolah Pagi.
+                    </div>
+                    <input type="text" id="manual-kumpulan-nama" name="manual-kumpulan-nama" placeholder="Masukkan nama kumpulan secara manual di sini jika tiada dalam senarai">
+                </div>
+
                 <div class="dashboard-grid">
                     
                     <!-- 1. Pilih Kategori -->
@@ -1396,6 +1407,7 @@
         const catCards = document.querySelectorAll('.cat-icon-card');
         const sesiCards = document.querySelectorAll('.sesi-card');
         const unitSelect = document.getElementById('select-unit-nama');
+        const manualUnitInput = document.getElementById('manual-kumpulan-nama');
         const cartItemsContainer = document.getElementById('cartItemsContainer');
         const emptyCartRow = document.getElementById('emptyCartRow');
         const grandTotalBox = document.getElementById('grand-total-box');
@@ -1513,9 +1525,12 @@
         }
 
         document.getElementById('addToCartBtn').addEventListener('click', function() {
-            const unitName = unitSelect.value;
-            if (!selectedCategory || !unitName) {
-                alert('Sila pilih Kategori, Kumpulan, dan Sesi terlebih dahulu.');
+            const manualVal = manualUnitInput.value.trim();
+            const selectVal = unitSelect.value;
+            const unitName = manualVal !== "" ? manualVal : selectVal;
+
+            if (!unitName) {
+                alert('Sila pilih Kumpulan daripada senarai ATAU isikan Nama Kumpulan secara manual.');
                 return;
             }
 
@@ -1552,6 +1567,7 @@
 
             document.querySelectorAll('.qty-val').forEach(el => el.innerText = "0");
             document.querySelectorAll('.pose-column-box input[type="checkbox"]').forEach(el => el.checked = false);
+            manualUnitInput.value = "";
             calculateLivePricesWidget();
             renderGlobalCart();
         });
