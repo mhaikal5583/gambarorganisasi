@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>(2026) Borang Gambar Kelas 2026</title>
+    <title>(2026) Borang Gambar Organisasi 2026</title>
     <style>
         :root {
             /* Premium Dashboard Luxury Dark Theme UI */
@@ -130,6 +130,87 @@
             transition: all 0.2s ease;
         }
 
+        select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='%23e2b659'><polygon points='0,0 14,0 7,7'/></svg>");
+            background-repeat: no-repeat;
+            background-position: right 20px center;
+            padding-right: 45px;
+        }
+
+        select option {
+            background-color: var(--panel-bg);
+            color: var(--text-main);
+            padding: 12px;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--gold-accent);
+            box-shadow: 0 0 0 4px rgba(226, 182, 89, 0.15);
+        }
+
+        /* Sample Images Display - 3600x2400 (3:2 Ratio) */
+        .sample-images-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 25px;
+        }
+
+        .sample-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .sample-img-wrapper {
+            width: 100%;
+            position: relative;
+            cursor: pointer;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-solid);
+            background-color: var(--input-bg);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .sample-img-wrapper:hover {
+            transform: translateY(-4px);
+            border-color: var(--gold-accent);
+        }
+
+        .sample-img-wrapper img {
+            width: 100%;
+            aspect-ratio: 3600 / 2400;
+            object-fit: cover;
+            display: block;
+        }
+
+        .sample-img-wrapper .zoom-hint {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            background: rgba(0, 0, 0, 0.7);
+            color: var(--gold-accent);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            pointer-events: none;
+        }
+
+        .sample-item span {
+            margin-top: 10px;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--gold-accent);
+            text-transform: uppercase;
+        }
+
         /* Price Dashboard Cards Styles */
         .price-dashboard {
             display: grid;
@@ -222,9 +303,9 @@
             margin-bottom: 5px;
         }
 
-        .price-card-4r .price-info-amount { color: var(--color-4r); }
-        .price-card-6rw .price-info-amount { color: var(--color-6rw); }
-        .price-card-8rw .price-info-amount { color: var(--color-8rw); }
+        .price-card-4r .price-info-amount { color: var(--color-4r); font-weight: 700; font-size: 1.2rem; }
+        .price-card-6rw .price-info-amount { color: var(--color-6rw); font-weight: 700; font-size: 1.2rem; }
+        .price-card-8rw .price-info-amount { color: var(--color-8rw); font-weight: 700; font-size: 1.2rem; }
 
         .price-info-promo {
             font-size: 1.3rem;
@@ -232,7 +313,7 @@
             color: #b91c1c;
         }
 
-        /* Dashboard Flex Layout */
+        /* Dashboard Grid Layout (Kategori -> Kumpulan -> Sesi) */
         .dashboard-grid {
             display: flex;
             gap: 20px;
@@ -240,9 +321,9 @@
         }
 
         .dash-col-1 { flex: 2; min-width: 320px; }
-        .dash-col-2 { flex: 1.2; min-width: 220px; }
-        .dash-col-3 { flex: 1.5; min-width: 250px; }
-        .dash-col-4 { flex: 3; min-width: 340px; }
+        .dash-col-2 { flex: 1.5; min-width: 250px; }
+        .dash-col-3 { flex: 1.2; min-width: 200px; }
+        .dash-col-4 { flex: 3.2; min-width: 340px; }
 
         @media (max-width: 1024px) {
             .dashboard-grid { flex-direction: column; }
@@ -282,7 +363,6 @@
             text-align: center;
             cursor: pointer;
             transition: all 0.2s;
-            position: relative;
         }
 
         .cat-icon-card:hover { border-color: var(--gold-accent); }
@@ -301,7 +381,7 @@
             background-color: var(--panel-bg);
             border: 1px solid var(--border-solid);
             border-radius: 8px;
-            padding: 20px;
+            padding: 15px;
             text-align: center;
             cursor: pointer;
             transition: all 0.2s;
@@ -312,10 +392,10 @@
         }
 
         .sesi-card.active { background-color: var(--card-active); border-color: #10b981; }
-        .sesi-icon { font-size: 1.8rem; }
-        .sesi-text { font-size: 0.95rem; font-weight: 700; text-transform: uppercase; }
+        .sesi-icon { font-size: 1.6rem; }
+        .sesi-text { font-size: 0.9rem; font-weight: 700; text-transform: uppercase; }
 
-        /* Pose UI */
+        /* Pose UI - Dikemas kini nisbah 3600x2400 (3:2) */
         .pose-flex-container {
             display: flex;
             gap: 10px;
@@ -329,7 +409,6 @@
             border-radius: 8px;
             padding: 10px;
             text-align: center;
-            position: relative;
         }
 
         .pose-header {
@@ -340,22 +419,33 @@
             align-items: center;
             justify-content: center;
             gap: 5px;
+            color: var(--gold-accent);
         }
-
-        .pose-header input[type="checkbox"] { accent-color: var(--card-border-active); }
 
         .pose-img-placeholder {
             width: 100%;
-            height: 90px;
-            background-color: #2e3446;
+            aspect-ratio: 3600 / 2400;
+            background-color: var(--input-bg);
             border-radius: 6px;
             margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            color: var(--text-muted);
             overflow: hidden;
+            cursor: pointer;
+            border: 1px solid var(--border-solid);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .pose-img-placeholder:hover {
+            transform: scale(1.02);
+            border-color: var(--gold-accent);
+        }
+
+        .pose-img-placeholder img {
+            width: 100%;
+            height: 100%;
+            aspect-ratio: 3600 / 2400;
+            object-fit: cover;
+            display: block;
         }
 
         .size-qty-control-row {
@@ -399,7 +489,7 @@
         }
 
         .live-widget-header {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             font-weight: 700;
             text-transform: uppercase;
             color: #38bdf8;
@@ -425,51 +515,78 @@
             padding-bottom: 0;
         }
 
-        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
         .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-        
-        /* QR Code Cards Custom Wrapper Layout */
-        .qr-display-card {
+        @media (max-width: 800px) { .grid-3 { grid-template-columns: 1fr; } }
+
+        /* QR Section Grid */
+        .qr-section-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+
+        .qr-card-wrapper {
             background: var(--input-bg);
             border: 1px solid var(--border-solid);
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .qr-image-wrapper {
-            background: #ffffff;
-            padding: 10px;
             border-radius: 8px;
-            width: 170px;
-            height: 170px;
+            padding: 14px;
+            text-align: center;
+        }
+
+        .qr-box-inner {
+            background-color: #ffffff;
+            padding: 8px;
+            border-radius: 6px;
+            aspect-ratio: 1/1;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            cursor: pointer;
+            transition: transform 0.2s ease;
         }
 
-        .qr-image-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
+        .qr-box-inner:hover { transform: scale(1.03); }
+        .qr-box-inner img { width: 100%; height: 100%; object-fit: contain; }
+        .qr-label-text { font-size: 0.95rem; font-weight: 700; color: var(--text-main); margin-top: 10px; }
+
+        .bank-details-box {
+            background: var(--input-bg);
+            border: 1px solid var(--border-solid);
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 30px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
         }
 
-        .qr-card-label {
-            font-size: 0.95rem;
-            font-weight: 600;
+        .bank-meta-item span {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .bank-meta-item p { font-weight: 700; color: var(--text-main); }
+
+        .payment-instruction {
+            font-size: 1.05rem;
+            background: var(--input-bg);
+            padding: 18px 22px;
+            border-radius: 8px;
+            border: 1px dashed var(--border-solid);
             color: var(--text-main);
         }
 
-        @media (max-width: 1024px) { .grid-3 { grid-template-columns: 1fr; } }
-        @media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
+        .payment-instruction.highlight-red {
+            border-color: var(--alert-red-border);
+            color: var(--alert-red-text);
+            background: var(--alert-red-bg);
+        }
 
-        /* Cart Table View */
+        /* Cart / Confirmation Table */
         .cart-table {
             width: 100%;
             border-collapse: collapse;
@@ -496,25 +613,6 @@
             gap: 10px;
         }
 
-        .cart-thumb {
-            width: 40px;
-            height: 40px;
-            background-color: #2e3446;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            overflow: hidden;
-        }
-
-        .cart-action-container {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        /* Tambah Ke Troli Button */
         .cart-btn {
             background: transparent;
             color: #38bdf8;
@@ -524,7 +622,6 @@
             font-weight: 700;
             border-radius: 6px;
             cursor: pointer;
-            transition: background-color 0.2s, color 0.2s;
             width: 100%;
             margin-top: 10px;
             text-transform: uppercase;
@@ -534,13 +631,9 @@
             gap: 8px;
         }
 
-        .cart-btn:hover {
-            background-color: rgba(56, 189, 248, 0.1);
-        }
+        .cart-btn:hover { background-color: rgba(56, 189, 248, 0.1); }
 
-        /* Kosongkan Troli Button */
         .cart-action-btn.danger {
-            flex: 1;
             padding: 14px;
             border: 1px solid var(--alert-red-border);
             background: transparent;
@@ -553,13 +646,11 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            transition: background-color 0.2s, color 0.2s;
             width: 100%;
+            margin-top: 15px;
         }
 
-        .cart-action-btn.danger:hover {
-            background-color: rgba(239, 68, 68, 0.1);
-        }
+        .cart-action-btn.danger:hover { background-color: rgba(239, 68, 68, 0.1); }
 
         .remove-btn {
             background: none;
@@ -567,34 +658,76 @@
             color: var(--alert-red-border);
             cursor: pointer;
             font-size: 1.2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
         }
 
         .submit-container { margin-top: 50px; margin-bottom: 100px; text-align: center; }
         .submit-btn {
             width: 100%;
             max-width: 500px;
-            background-color: var(--success-green);
-            color: #ffffff;
+            background-color: var(--gold-accent);
+            color: #000000;
             border: none;
             padding: 18px 36px;
             font-size: 1.2rem;
             font-weight: 700;
             border-radius: 8px;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(16,185,129,0.3);
+            box-shadow: 0 4px 15px rgba(226, 182, 89, 0.2);
             transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
             text-transform: uppercase;
         }
-        .submit-btn:hover { background-color: #059669; }
-        .submit-btn:disabled { background: #334155; color: #64748b; cursor: not-allowed; box-shadow: none; }
+        .submit-btn:hover { background-color: #ffffff; }
+        .submit-btn:disabled { background: #334155; color: #64748b; cursor: not-allowed; }
+
+        /* Fullscreen Lightbox Modal */
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 99999;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.92);
+            backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 20px;
+            cursor: zoom-out;
+        }
+
+        .image-modal.active { display: flex; }
+
+        .image-modal img {
+            max-width: 95vw;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 0 35px rgba(0, 0, 0, 0.9);
+            cursor: default;
+        }
+
+        .image-modal-caption {
+            margin-top: 16px;
+            color: var(--gold-accent);
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .image-modal-close {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            color: #ffffff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .image-modal-close:hover { color: var(--gold-accent); }
     </style>
 </head>
 <body>
@@ -603,12 +736,14 @@
         
         <div class="header">
             <h1>BORANG TEMPAHAN GAMBAR ORGANISASI SMK BSP 2026</h1>
+            <p>Sila pastikan maklumat yang diberikan adalah betul, ia akan digunakan semasa proses tuntutan gambar di sekolah.</p>
         </div>
 
         <form id="googleSheetForm">
 
+            <!-- (1) A. MAKLUMAT PELAJAR -->
             <div class="section-card">
-                <div class="section-title">1. Maklumat Pelajar</div>
+                <div class="section-title">A. MAKLUMAT PELAJAR</div>
                 <div class="grid-3">
                     <div class="form-group">
                         <label for="nama-pelajar">Nama Pelajar (Nama Penuh)</label>
@@ -654,39 +789,105 @@
                 </div>
             </div>
 
+            <!-- (2) B. MAKLUMAT GURU & PENJAGA -->
             <div class="section-card">
-                <div class="section-title">2. Maklumat Penjaga</div>
+                <div class="section-title">B. MAKLUMAT GURU & PENJAGA</div>
+                <div style="font-size: 1.05rem; color: var(--gold-accent); margin-bottom: 25px; background: var(--gold-light); padding: 14px 18px; border-radius: 6px; border-left: 4px solid var(--gold-accent); font-weight: 600;">
+                    * Bahagian ini hanya isi sekiranya Guru ataupun Penjaga ingin membuat pembelian gambar.
+                </div>
+
                 <div class="form-group">
-                    <label for="nama-guru">Nama Guru (Jika nak buat pembelian)</label>
+                    <label for="nama-guru">Nama Guru (Nama Penuh)</label>
                     <input type="text" id="nama-guru" name="nama-guru" placeholder="Masukkan nama penuh guru (jika berkaitan)">
                 </div>
+
                 <div class="form-group">
-                    <label for="nama-penjaga">Nama Penjaga (Untuk hubungi dan jika wakil penjaga nak belikan sendiri)</label>
-                    <div class="label-desc" style="color: var(--gold-accent); font-weight: 600;">
-                        * Kena letak remark dekat part penjaga, sila isi nama &amp; anak di atas untuk tujuan agihan gambar.
-                    </div>
-                    <input type="text" id="nama-penjaga" name="nama-penjaga" placeholder="Masukkan nama penuh penjaga">
+                    <label for="nama-penjaga">Nama Penjaga (Nama Penuh)</label>
+                    <input type="text" id="nama-penjaga" name="nama-penjaga" placeholder="Masukkan nama penuh penjaga (jika berkaitan)">
                 </div>
-                <div class="grid-2">
-                    <div class="form-group">
-                        <label for="info-hubung-tel">Nombor Telefon</label>
-                        <div class="label-desc">(Hanya akan dihubungi sekirannya perlu sahaja)</div>
-                        <input type="tel" id="info-hubung-tel" name="info-hubung-tel" placeholder="Contoh: 01XXXXXXXXX" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="info-hubung-email">Alamat Emel (Salinan Invoice Digital)</label>
-                        <input type="email" id="info-hubung-email" name="info-hubung-email" placeholder="contoh@gmail.com">
-                    </div>
+
+                <div class="form-group">
+                    <label for="tingkatan-guru-penjaga">Tingkatan</label>
+                    <select id="tingkatan-guru-penjaga" name="tingkatan-guru-penjaga">
+                        <option value="" selected>Sila Pilih Tingkatan (Jika berkaitan)</option>
+                        <option value="Tingkatan 1">Tingkatan 1</option>
+                        <option value="Tingkatan 2">Tingkatan 2</option>
+                        <option value="Tingkatan 3">Tingkatan 3</option>
+                        <option value="Tingkatan 4">Tingkatan 4</option>
+                        <option value="Tingkatan 5">Tingkatan 5</option>
+                        <option value="Pentadbir / Guru">Pentadbir / Guru</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="nama-kelas-guru-penjaga">Nama Kelas (Gambar akan dicetak mengikut pilihan nama kelas)</label>
+                    <select id="nama-kelas-guru-penjaga" name="nama-kelas-guru-penjaga">
+                        <option value="" selected>Sila Pilih Nama Kelas (Jika berkaitan)</option>
+                        <option value="Akik">AKIK</option>
+                        <option value="Ametis">AMETIS</option>
+                        <option value="Baiduri">BAIDURI</option>
+                        <option value="Berlian">BERLIAN</option>
+                        <option value="Delima">DELIMA</option>
+                        <option value="Firus">FIRUS</option>
+                        <option value="Imtiyaz">IMTIYAZ</option>
+                        <option value="Intan">INTAN</option>
+                        <option value="Jade">JADE</option>
+                        <option value="Jauhar">JAUHAR</option>
+                        <option value="Kuarsa">KUARSA</option>
+                        <option value="Mutiara">MUTIARA</option>
+                        <option value="Mumtaz">MUMTAZ</option>
+                        <option value="Nilam">NILAM</option>
+                        <option value="Opal">OPAL</option>
+                        <option value="Qamar">QAMAR</option>
+                        <option value="Rubi">RUBI</option>
+                        <option value="Topaz">TOPAZ</option>
+                        <option value="Zamrud">ZAMRUD</option>
+                        <option value="Zirkon">ZIRKON</option>
+                        <option value="Pentadbir / Guru">PENTADBIR / GURU</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="kelas-tiada">Kelas Tidak Tersenarai</label>
+                    <div class="label-desc">JANGAN ISI MELAINKAN NAMA KELAS TIADA DALAM SENARAI DI ATAS.</div>
+                    <input type="text" id="kelas-tiada" name="kelas-tiada" placeholder="Masukkan nama kelas jika tiada di atas">
                 </div>
             </div>
 
+            <!-- (3) C. CONTOH SAIZ & HARGA GAMBAR -->
             <div class="section-card">
-                <div class="section-title">3. Keterangan Saiz &amp; Harga</div>
+                <div class="section-title">C. CONTOH SAIZ & HARGA GAMBAR</div>
+
                 <div style="background: var(--input-bg); border: 1px solid var(--border-solid); padding: 15px 20px; border-radius: 8px; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
                     <span>🔗</span>
-                    <a href="https://drive.google.com/drive/folders/1eIFsQai-I8Rg08YxAh8Cqz5xLrnJNPib" target="_blank" style="color: var(--gold-accent); text-decoration: underline; font-weight: 700; font-size: 1.05rem;">
+                    <a href="https://drive.google.com/drive/folders/1eIFsQai-I8RgO8YxAh8Cqz5xLrnJNPib?usp=sharing" target="_blank" style="color: var(--gold-accent); text-decoration: underline; font-weight: 700; font-size: 1.05rem;">
                         Klik Sini Untuk Folder Rujukan Gambar Penuh Organisasi
                     </a>
+                </div>
+
+                <!-- Rujukan Gambar Interaktif 3600x2400 (Formal, Freestyle, Props) -->
+                <div class="sample-images-grid">
+                    <div class="sample-item">
+                        <div class="sample-img-wrapper" onclick="openFullscreen('FormalKelas.jpeg', 'FORMAL')">
+                            <img src="FormalKelas.jpeg" alt="FORMAL">
+                            <div class="zoom-hint">🔍 Lihat Penuh</div>
+                        </div>
+                        <span>FORMAL</span>
+                    </div>
+                    <div class="sample-item">
+                        <div class="sample-img-wrapper" onclick="openFullscreen('FreestyleKelas.jpeg', 'FREESTYLE')">
+                            <img src="FreestyleKelas.jpeg" alt="FREESTYLE">
+                            <div class="zoom-hint">🔍 Lihat Penuh</div>
+                        </div>
+                        <span>FREESTYLE</span>
+                    </div>
+                    <div class="sample-item">
+                        <div class="sample-img-wrapper" onclick="openFullscreen('PropKelas.jpeg', 'PROPS')">
+                            <img src="PropKelas.jpeg" alt="PROPS">
+                            <div class="zoom-hint">🔍 Lihat Penuh</div>
+                        </div>
+                        <span>PROPS</span>
+                    </div>
                 </div>
                 
                 <div class="price-dashboard">
@@ -702,7 +903,7 @@
                         <div class="price-card-body">
                             <div class="price-info-block">
                                 <div class="price-info-label">Harga Seunit</div>
-                                <div class="price-info-amount">RM 8.00<span style="font-size:0.85rem; font-weight:normal; color:#64748b;"> /pcs</span></div>
+                                <div class="price-info-amount">RM 8.00</div>
                             </div>
                             <div class="price-info-block">
                                 <div class="price-info-label">Beli 3 Keping</div>
@@ -723,7 +924,7 @@
                         <div class="price-card-body">
                             <div class="price-info-block">
                                 <div class="price-info-label">Harga Seunit</div>
-                                <div class="price-info-amount">RM 10.00<span style="font-size:0.85rem; font-weight:normal; color:#64748b;"> /pcs</span></div>
+                                <div class="price-info-amount">RM 10.00</div>
                             </div>
                             <div class="price-info-block">
                                 <div class="price-info-label">Beli 3 Keping</div>
@@ -744,7 +945,7 @@
                         <div class="price-card-body">
                             <div class="price-info-block">
                                 <div class="price-info-label">Harga Seunit</div>
-                                <div class="price-info-amount">RM 15.00<span style="font-size:0.85rem; font-weight:normal; color:#64748b;"> /pcs</span></div>
+                                <div class="price-info-amount">RM 15.00</div>
                             </div>
                             <div class="price-info-block">
                                 <div class="price-info-label">Beli 3 Keping</div>
@@ -755,30 +956,47 @@
                 </div>
             </div>
 
+            <!-- (4) D. PEMBELIAN GAMBAR -->
             <div class="section-card">
-                <div class="section-title">4. Jualan / Pilihan Gambar</div>
+                <div class="section-title">D. PEMBELIAN GAMBAR</div>
+                <div style="font-size: 1.05rem; color: var(--gold-accent); margin-bottom: 20px; background: var(--gold-light); padding: 12px 18px; border-radius: 6px; border-left: 4px solid var(--gold-accent); font-weight: 600;">
+                    Sila pilih badan organisasi yang anda ingin beli, sila pastikan sesi persekolahan adalah betul.
+                </div>
+
                 <div class="dashboard-grid">
                     
+                    <!-- 1. Pilih Kategori -->
                     <div class="dash-col-1">
                         <div class="dash-box">
                             <div class="dash-box-title">1. Pilih Kategori</div>
                             <div class="category-icon-grid" id="categoryIconGrid">
                                 <div class="cat-icon-card" data-value="GURU-GURU"><div class="cat-icon-placeholder">👨‍🏫</div><div class="cat-title-text">Guru</div></div>
                                 <div class="cat-icon-card" data-value="BADAN PENGAWAS"><div class="cat-icon-placeholder">🛡️</div><div class="cat-title-text">Pengawas</div></div>
-                                <div class="cat-icon-card" data-value="BADAN BERUNIFORM"><div class="cat-icon-placeholder">🎖️</div><div class="cat-title-text">BADAN BERUNIFORM</div></div>
+                                <div class="cat-icon-card" data-value="BADAN BERUNIFORM"><div class="cat-icon-placeholder">🎖️</div><div class="cat-title-text">Uniform</div></div>
                                 <div class="cat-icon-card" data-value="PERSATUAN SEKOLAH"><div class="cat-icon-placeholder">🌐</div><div class="cat-title-text">Persatuan</div></div>
                                 <div class="cat-icon-card" data-value="KELAB SEKOLAH"><div class="cat-icon-placeholder">🎨</div><div class="cat-title-text">Kelab</div></div>
                                 <div class="cat-icon-card" data-value="RUMAH SUKAN"><div class="cat-icon-placeholder">🚩</div><div class="cat-title-text">Rumah Sukan</div></div>
-                                <div class="cat-icon-card" data-value="SKUAD/AJK SEKOLAH"><div class="cat-icon-placeholder">🧬</div><div class="cat-title-text">Skuad/ajk</div></div>
+                                <div class="cat-icon-card" data-value="SKUAD/AJK SEKOLAH"><div class="cat-icon-placeholder">🧬</div><div class="cat-title-text">Skuad/AJK</div></div>
                                 <div class="cat-icon-card" data-value="PASUKAN SEKOLAH"><div class="cat-icon-placeholder">🏆</div><div class="cat-title-text">Pasukan</div></div>
                                 <div class="cat-icon-card" data-value="PERMAINAN SEKOLAH"><div class="cat-icon-placeholder">⚽</div><div class="cat-title-text">Permainan</div></div>
                             </div>
                         </div>
                     </div>
 
+                    <!-- 2. Kumpulan -->
                     <div class="dash-col-2">
                         <div class="dash-box">
-                            <div class="dash-box-title">2. Pilih Sesi</div>
+                            <div class="dash-box-title">2. Kumpulan</div>
+                            <select id="select-unit-nama" style="padding: 12px; font-size: 1rem;">
+                                <option value="" disabled selected>Sila Pilih Kategori Dahulu</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- 3. Pilih Sesi -->
+                    <div class="dash-col-3">
+                        <div class="dash-box">
+                            <div class="dash-box-title">3. Sesi</div>
                             <div class="sesi-container">
                                 <div class="sesi-card active" data-value="Sesi Pagi">
                                     <div class="sesi-icon">☀️</div>
@@ -792,15 +1010,7 @@
                         </div>
                     </div>
 
-                    <div class="dash-col-3">
-                        <div class="dash-box">
-                            <div class="dash-box-title">3. KUMPULAN </div>
-                            <select id="select-unit-nama" style="padding: 12px; font-size: 1rem;">
-                                <option value="" disabled selected>Sila Pilih Kategori</option>
-                            </select>
-                        </div>
-                    </div>
-
+                    <!-- 4. Pilih Pose, Saiz & Kuantiti -->
                     <div class="dash-col-4">
                         <div class="dash-box">
                             <div class="dash-box-title">4. Pilih Pose, Saiz &amp; Kuantiti</div>
@@ -808,7 +1018,9 @@
                                 
                                 <div class="pose-column-box" data-pose="Formal">
                                     <div class="pose-header"><input type="checkbox" id="check-formal"> FORMAL</div>
-                                    <div class="pose-img-placeholder">👔</div>
+                                    <div class="pose-img-placeholder" onclick="openFullscreen('FormalKelas.jpeg', 'FORMAL')">
+                                        <img src="FormalKelas.jpeg" alt="FORMAL">
+                                    </div>
                                     <div class="size-qty-control-row">
                                         <span>4R</span>
                                         <div class="qty-stepper">
@@ -837,7 +1049,9 @@
 
                                 <div class="pose-column-box" data-pose="Freestyle">
                                     <div class="pose-header"><input type="checkbox" id="check-freestyle"> FREESTYLE</div>
-                                    <div class="pose-img-placeholder">😎</div>
+                                    <div class="pose-img-placeholder" onclick="openFullscreen('FreestyleKelas.jpeg', 'FREESTYLE')">
+                                        <img src="FreestyleKelas.jpeg" alt="FREESTYLE">
+                                    </div>
                                     <div class="size-qty-control-row">
                                         <span>4R</span>
                                         <div class="qty-stepper">
@@ -866,7 +1080,9 @@
 
                                 <div class="pose-column-box" data-pose="Props">
                                     <div class="pose-header"><input type="checkbox" id="check-props"> PROPS</div>
-                                    <div class="pose-img-placeholder">🎓</div>
+                                    <div class="pose-img-placeholder" onclick="openFullscreen('PropKelas.jpeg', 'PROPS')">
+                                        <img src="PropKelas.jpeg" alt="PROPS">
+                                    </div>
                                     <div class="size-qty-control-row">
                                         <span>4R</span>
                                         <div class="qty-stepper">
@@ -896,22 +1112,25 @@
                             </div>
 
                             <div class="live-widget-panel">
-                                <div class="live-widget-header">Ringkasan Harga Pilihan Semasa</div>
+                                <div class="live-widget-header">Maklumat pilihan tempahan</div>
                                 <div class="live-widget-row"><span>4R : <span id="widget-4r-count">0</span> keping</span><span id="widget-4r-price">RM0.00</span></div>
                                 <div class="live-widget-row"><span>6RW : <span id="widget-6rw-count">0</span> keping</span><span id="widget-6rw-price">RM0.00</span></div>
                                 <div class="live-widget-row"><span>8RW : <span id="widget-8rw-count">0</span> keping</span><span id="widget-8rw-price">RM0.00</span></div>
                                 <div class="live-widget-row total"><span>JUMLAH</span><span id="widget-total-price">RM0.00</span></div>
                             </div>
 
-                            <button type="button" class="cart-btn" id="addToCartBtn">📥 Tambah Ke Troli</button>
+                            <button type="button" class="cart-btn" id="addToCartBtn">📥 Tambah Ke Pilihan</button>
                         </div>
                     </div>
 
                 </div>
             </div>
 
+            <!-- (5) E. MAKLUMAT PEMBELIAN (PENGESAHAN TEMPAHAN + PERINGATAN) -->
             <div class="section-card">
-                <div class="section-title">5. Troli Tempahan</div>
+                <div class="section-title">E. MAKLUMAT PEMBELIAN</div>
+                
+                <div style="font-weight: 700; color: var(--gold-accent); margin-bottom: 10px; font-size: 1.1rem;">Pengesahan Tempahan</div>
                 <div style="overflow-x: auto;">
                     <table class="cart-table">
                         <thead>
@@ -926,7 +1145,7 @@
                             </tr>
                         </thead>
                         <tbody id="cartItemsContainer">
-                            <tr id="emptyCartRow"><td colspan="7" style="text-align: center; color: var(--text-muted); padding: 25px 0;">Troli kosong. Sila konfigurasi pilihan di atas dan klik Tambah Ke Troli.</td></tr>
+                            <tr id="emptyCartRow"><td colspan="7" style="text-align: center; color: var(--text-muted); padding: 25px 0;">Pilihan kosong. Sila konfigurasi pilihan di atas dan klik Tambah Ke Pilihan.</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -939,75 +1158,154 @@
                     <div class="live-widget-row total" style="font-size: 1.3rem;"><span>JUMLAH KESELURUHAN</span><span id="grand-total-box">RM0.00</span></div>
                 </div>
 
-                <div class="cart-action-container">
-                    <button type="button" class="cart-action-btn danger" id="clearCartBtn">🗑️ Kosongkan Troli</button>
-                </div>
-            </div>
+                <button type="button" class="cart-action-btn danger" id="clearCartBtn">🗑️ Kosongkan Pilihan</button>
 
-            <div class="section-card">
-                <div class="section-title">6. Peringatan</div>
-                <div class="payment-instruction highlight-red">
-                    • Sila pastikan maklumat yang di isikan adalah betul.<br>
+                <!-- Peringatan Diserap Masuk ke Sini -->
+                <div class="payment-instruction highlight-red" style="margin-top: 25px;">
+                    <strong>PERINGATAN :</strong><br>
+                    • Sila pastikan maklumat yang diisikan adalah betul.<br>
                     • Gambar akan dicetak berdasarkan pembelian dan jumlah pembayaran sahaja.<br>
                     • Bayaran tidak akan dikembalikan selepas bayaran dibuat.
                 </div>
             </div>
 
+            <!-- (7) G. CARA PEMBAYARAN & TUNTUTAN GAMBAR -->
             <div class="section-card">
-                <div class="section-title">7. Cara Pembayaran</div>
-                <div class="grid-3" style="margin-bottom: 30px;">
-                    <div class="qr-display-card">
-                        <div class="qr-image-wrapper">
-                            <img src="tng.jpeg" alt="TNG eWallet QR Code">
+                <div class="section-title">G. CARA PEMBAYARAN & TUNTUTAN GAMBAR</div>
+                
+                <div class="payment-instruction" style="margin-bottom: 30px; margin-top: 0;">
+                    • Hantar bukti pembelian sama ada "upload" dalam borang.<br>
+                    • Sebarang "bayaran terlebih" tidak akan dipulangkan.<br>
+                    • Gambar akan diberikan kepada guru bertugas majalah 2026 untuk diagihkan.
+                </div>
+
+                <div class="qr-section-grid">
+                    <div class="qr-card-wrapper">
+                        <div class="qr-box-inner" onclick="openFullscreen('bankislam.jpeg', 'QR Bank Islam')">
+                            <img src="bankislam.jpeg" alt="Bank Islam QR">
                         </div>
-                        <div class="qr-card-label">TNG eWallet QR</div>
+                        <div class="qr-label-text">Bank Islam (Muhammad Ilyas)</div>
                     </div>
-                    
-                    <div class="qr-display-card">
-                        <div class="qr-image-wrapper">
-                            <img src="bankislam.jpeg" alt="Bank Islam QR Code">
+                    <div class="qr-card-wrapper">
+                        <div class="qr-box-inner" onclick="openFullscreen('maybank.jpeg', 'QR Maybank')">
+                            <img src="maybank.jpeg" alt="Maybank QR">
                         </div>
-                        <div class="qr-card-label">Bank Islam QR</div>
+                        <div class="qr-label-text">Maybank (Muhammad Ilyas)</div>
                     </div>
-                    
-                    <div style="background: var(--input-bg); border: 1px solid var(--border-solid); padding: 20px; border-radius: 8px; display: flex; flex-direction: column; justify-content: center; font-size: 0.95rem;">
-                        <span style="color: var(--text-muted); text-transform: uppercase; font-size: 0.8rem;">Nama Bank:</span>
-                        <p style="font-weight: 700; margin-bottom: 8px;">BANK ISLAM</p>
-                        <span style="color: var(--text-muted); text-transform: uppercase; font-size: 0.8rem;">Nama Akaun:</span>
-                        <p style="font-weight: 700; margin-bottom: 8px;">Muhammad Ilyas Bin Mohd Hassan</p>
-                        <span style="color: var(--text-muted); text-transform: uppercase; font-size: 0.8rem;">No. Akaun Bank Islam:</span>
-                        <p style="color: var(--gold-accent); font-weight: 700; font-size: 1.15rem;">1209 2022 8922 03</p>
+                    <div class="qr-card-wrapper">
+                        <div class="qr-box-inner" onclick="openFullscreen('tng.jpeg', 'QR Touch n Go')">
+                            <img src="tng.jpeg" alt="Touch n Go QR">
+                        </div>
+                        <div class="qr-label-text">Touch n Go (Muhammad Ilyas)</div>
                     </div>
                 </div>
+
+                <div class="bank-details-box">
+                    <div class="bank-meta-item">
+                        <span>Nama Bank</span>
+                        <p>Bank Islam Malaysia Berhad</p>
+                    </div>
+                    <div class="bank-meta-item">
+                        <span>Nama Pemegang Akaun</span>
+                        <p>Muhammad Ilyas Bin Mohd Hassan</p>
+                    </div>
+                    <div class="bank-meta-item">
+                        <span>No. Akaun</span>
+                        <p style="color: var(--gold-accent); font-weight: 700;">1209 2022 8922 03</p>
+                    </div>
+                </div>
+
                 <div class="form-group">
-                    <label for="resit">Sila hantar resit sebagai bukti pembayaran <span style="color: var(--alert-red-border);">*</span></label>
-                    <div class="label-desc">(Muat naik di bawah ataupun hantar terus ke WhatsApp penjual)</div>
+                    <label for="resit">Resit Pembayaran Gambar <span style="color: var(--alert-red-border);">*</span></label>
+                    <div class="label-desc">Sila masukkan emel anda di ruangan "Maklumat Untuk Dihubungi" di bawah jika anda ingin sistem menghantar salinan invois pengesahan ke emel anda secara automatik.</div>
                     <input type="file" id="resit" name="resit" accept="image/*,application/pdf" required>
+                </div>
+
+                <div class="payment-instruction highlight-red">
+                    <strong>BANK TIDAK BENARKAN SCREENSHOT SECARA DIRECT.</strong> SILA DOWNLOAD DULU RECEIPT TERSEBUT KEMUDIAN BARU SCREENSHOT UNTUK UPLOAD SEBAGAI GAMBAR.
                 </div>
             </div>
 
+            <!-- (8) H. MAKLUMAT UNTUK HUBUNGI -->
             <div class="section-card">
-                <div class="section-title">8. Hubungi Penjual</div>
-                <div class="payment-instruction" style="border-color: var(--border-solid);">
-                    Sekirannya terdapat apa apa pertanyaan mengenai jualan gambar ini, guru/pelajar/penjaga boleh hubungi "Person Incharge" untuk pertanyaan lanjut:<br><br>
-                    <strong>Nama :</strong> Muhd Ilyas - 019 909 4717<br>
-                    <a href="https://wa.me/60199094717?text=Pembelian%20Gambar%20SMK%20BSP%202026" target="_blank" style="color: var(--gold-accent); text-decoration: underline; font-weight: 700; margin-top: 5px; display: inline-block;">
-                        Direct to Chat (WhatsApp)
-                    </a>
+                <div class="section-title">H. MAKLUMAT UNTUK HUBUNGI</div>
+                <div style="font-size: 1.05rem; color: var(--gold-accent); margin-bottom: 25px; background: var(--gold-light); padding: 14px 18px; border-radius: 6px; border-left: 4px solid var(--gold-accent); font-weight: 600;">
+                    Sila isikan maklumat dibawah untuk salinan invois atau pengesahan tempahan sahaja.
+                </div>
+
+                <div class="form-group">
+                    <label for="info-hubung-email">Salinan Invoice</label>
+                    <div class="label-desc">Sekirannya Pelajar/Guru/Penjaga inginkan "Invoice Digital" sila isikan email di bawah untuk dapatkan salinan digital terus di email.</div>
+                    <input type="email" id="info-hubung-email" name="info-hubung-email" placeholder="contoh@gmail.com">
+                </div>
+
+                <div style="font-size: 1.05rem; color: var(--gold-accent); margin-bottom: 25px; background: var(--gold-light); padding: 14px 18px; border-radius: 6px; border-left: 4px solid var(--gold-accent); font-weight: 600; margin-top: 40px;">
+                    Sekirannya penjual perlu hubungi Pelajar/Guru/Penjaga, untuk pengesahan pembayaran, atau tempahan sahaja
+                </div>
+
+                <div class="form-group">
+                    <label for="info-hubung-nama">Nama :</label>
+                    <input type="text" id="info-hubung-nama" name="info-hubung-nama" placeholder="Masukkan nama penuh">
+                </div>
+
+                <div class="form-group">
+                    <label for="info-hubung-tel">No Telefon :</label>
+                    <input type="tel" id="info-hubung-tel" name="info-hubung-tel" placeholder="Masukkan no telefon">
+                </div>
+
+                <div class="label-desc" style="margin-top: 15px;">
+                    Maklumat di atas hanya akan digunakkan oleh pihak penjual sekiranya perlu sahaja.
+                </div>
+
+                <div class="payment-instruction" style="border-color: var(--border-solid); margin-top: 30px;">
+                    <strong>PERTANYAAN LAIN:</strong><br>
+                    Sekiranya ada apa-apa pertanyaan, boleh ajukan soalan di nombor di bawah:<br>
+                    Nama : Ilyas<br>
+                    No Telefon : 019 909 4717 • <a href="https://wa.me/60199094717?text=Pembelian%20Gambar%20SMK%20BSP%202026" target="_blank" style="color: var(--gold-accent); text-decoration: underline; font-weight: 700;">Direct to Chat (WhatsApp)</a><br>
+                    Maklumat balas pertanyaan akan dijawab secepat mungkin.
                 </div>
             </div>
 
             <input type="hidden" id="hiddenCartData" name="cartDataString">
-            <input type="hidden" id="info-hubung-nama" name="info-hubung-nama">
 
             <div class="submit-container">
-                <button type="submit" class="submit-btn" id="submitBtn">🔒 Semak &amp; Buat Pembayaran</button>
+                <button type="submit" class="submit-btn" id="submitBtn">Hantar Tempahan</button>
             </div>
 
         </form>
     </div>
 
+    <!-- Lightbox Modal Popup -->
+    <div id="imageModal" class="image-modal" onclick="closeFullscreen()">
+        <span class="image-modal-close" onclick="closeFullscreen()">&times;</span>
+        <img id="modalImage" src="" alt="Fullscreen View" onclick="event.stopPropagation()">
+        <div id="modalCaption" class="image-modal-caption"></div>
+    </div>
+
     <script>
+        // Fullscreen Lightbox Functionality
+        const imageModal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalCaption = document.getElementById('modalCaption');
+
+        function openFullscreen(imageSrc, captionText) {
+            modalImage.src = imageSrc;
+            modalCaption.innerText = captionText;
+            imageModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeFullscreen() {
+            imageModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape" && imageModal.classList.contains('active')) {
+                closeFullscreen();
+            }
+        });
+
         const databaseKumpulan = {
             "GURU-GURU": [
                 "Pentadbir - Sesi Pagi", "Pentadbir - Sesi Petang", "PPKI - Sesi Pagi", "PPKI - Sesi Petang",
@@ -1217,7 +1515,7 @@
         document.getElementById('addToCartBtn').addEventListener('click', function() {
             const unitName = unitSelect.value;
             if (!selectedCategory || !unitName) {
-                alert('Sila pilih Kategori, Sesi, dan Nama Unit terlebih dahulu.');
+                alert('Sila pilih Kategori, Kumpulan, dan Sesi terlebih dahulu.');
                 return;
             }
 
@@ -1299,7 +1597,7 @@
 
                 const tr = document.createElement('tr');
                 tr.innerHTML = `
-                    <td><div class="cart-item-flex"><div class="cart-thumb">🖼️</div><strong>${item.item}</strong></div></td>
+                    <td><strong>${item.item}</strong></td>
                     <td><span style="color: var(--text-muted); font-weight: 600;">${item.sesi}</span></td>
                     <td><strong>${item.style}</strong></td>
                     <td><span style="background-color:#2e3446; padding:2px 8px; border-radius:4px; font-weight:700;">${item.saiz}</span></td>
@@ -1335,7 +1633,7 @@
         window.removeCartItem = removeCartItem;
 
         document.getElementById('clearCartBtn').addEventListener('click', () => {
-            if(confirm('Adakah anda pasti mahu mengosongkan troli?')) {
+            if(confirm('Adakah anda pasti mahu mengosongkan senarai tempahan?')) {
                 cart = [];
                 renderGlobalCart();
             }
@@ -1349,14 +1647,12 @@
             e.preventDefault();
 
             if (cart.length === 0) {
-                alert('Troli anda masih kosong. Sila masukkan pilihan tempahan gambar terlebih dahulu.');
+                alert('Senarai tempahan anda masih kosong. Sila buat pilihan gambar terlebih dahulu.');
                 return;
             }
 
             btn.disabled = true;
             btn.innerText = 'Memproses Transaksi...';
-
-            document.getElementById('info-hubung-nama').value = document.getElementById('nama-pelajar').value;
 
             const fileInput = document.getElementById('resit');
             const file = fileInput.files[0];
@@ -1395,12 +1691,12 @@
                             alert('Ralat sistem: ' + data.error);
                         }
                         btn.disabled = false;
-                        btn.innerText = '🔒 Semak & Buat Pembayaran';
+                        btn.innerText = 'Hantar Tempahan';
                     })
                     .catch(error => {
                         alert('Ralat sambungan! Sila semak semula pautan skrip anda.');
                         btn.disabled = false;
-                        btn.innerText = '🔒 Semak & Buat Pembayaran';
+                        btn.innerText = 'Hantar Tempahan';
                         console.error('Error!', error);
                     });
                 };
@@ -1408,7 +1704,7 @@
             } else {
                 alert('Sila sertakan fail bukti resit perbankan.');
                 btn.disabled = false;
-                btn.innerText = '🔒 Semak & Buat Pembayaran';
+                btn.innerText = 'Hantar Tempahan';
             }
         });
     </script>
