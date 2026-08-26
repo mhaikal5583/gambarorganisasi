@@ -395,7 +395,7 @@
         .sesi-icon { font-size: 1.6rem; }
         .sesi-text { font-size: 0.9rem; font-weight: 700; text-transform: uppercase; }
 
-        /* Pose UI - Dikemas kini nisbah 3600x2400 (3:2) */
+        /* Pose UI - Nisbah 3600x2400 (3:2) */
         .pose-flex-container {
             display: flex;
             gap: 10px;
@@ -607,12 +607,6 @@
             font-weight: 700;
         }
 
-        .cart-item-flex {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
         .cart-btn {
             background: transparent;
             color: #38bdf8;
@@ -758,6 +752,7 @@
                             <option value="Tingkatan 3">Tingkatan 3</option>
                             <option value="Tingkatan 4">Tingkatan 4</option>
                             <option value="Tingkatan 5">Tingkatan 5</option>
+                            <option value="PPKI">PPKI</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -779,6 +774,7 @@
                             <option value="Mumtaz">MUMTAZ</option>
                             <option value="Nilam">NILAM</option>
                             <option value="Opal">OPAL</option>
+                            <option value="PPKI">PPKI</option>
                             <option value="Qamar">QAMAR</option>
                             <option value="Rubi">RUBI</option>
                             <option value="Topaz">TOPAZ</option>
@@ -815,6 +811,7 @@
                         <option value="Tingkatan 3">Tingkatan 3</option>
                         <option value="Tingkatan 4">Tingkatan 4</option>
                         <option value="Tingkatan 5">Tingkatan 5</option>
+                        <option value="PPKI">PPKI</option>
                         <option value="Pentadbir / Guru">Pentadbir / Guru</option>
                     </select>
                 </div>
@@ -838,6 +835,7 @@
                         <option value="Mumtaz">MUMTAZ</option>
                         <option value="Nilam">NILAM</option>
                         <option value="Opal">OPAL</option>
+                        <option value="PPKI">PPKI</option>
                         <option value="Qamar">QAMAR</option>
                         <option value="Rubi">RUBI</option>
                         <option value="Topaz">TOPAZ</option>
@@ -865,7 +863,7 @@
                     </a>
                 </div>
 
-                <!-- Rujukan Gambar Interaktif 3600x2400 (FormalOrganisasi, FreestyleOrganisasi, PropsOrganisasi) -->
+                <!-- Rujukan Gambar Interaktif 3600x2400 -->
                 <div class="sample-images-grid">
                     <div class="sample-item">
                         <div class="sample-img-wrapper" onclick="openFullscreen('FormalOrganisasi.jpeg', 'FORMAL')">
@@ -959,7 +957,11 @@
             <!-- (4) D. PEMBELIAN GAMBAR -->
             <div class="section-card">
                 <div class="section-title">D. PEMBELIAN GAMBAR</div>
-                <div style="font-size: 1.05rem; color: var(--gold-accent); margin-bottom: 20px; background: var(--gold-light); padding: 12px 18px; border-radius: 6px; border-left: 4px solid var(--gold-accent); font-weight: 600;">
+                
+                <div style="font-size: 1.05rem; color: var(--gold-accent); margin-bottom: 12px; background: var(--gold-light); padding: 12px 18px; border-radius: 6px; border-left: 4px solid var(--gold-accent); font-weight: 600;">
+                    Sila rujuk link gambar terlebih dahulu di "Google Drive" sebelum membuat pembelian.
+                </div>
+                <div style="font-size: 1.05rem; color: var(--text-muted); margin-bottom: 20px; background: rgba(255,255,255,0.03); padding: 12px 18px; border-radius: 6px; border-left: 4px solid var(--border-solid); font-weight: 600;">
                     Sila pilih badan organisasi yang anda ingin beli, sila pastikan sesi persekolahan adalah betul.
                 </div>
 
@@ -1326,77 +1328,102 @@
                 "AKP - Sesi Pagi", "AKP - Sesi Petang"
             ],
             "BADAN PENGAWAS": [
-                "Pengawas Sekolah (Biru) - Sesi Pagi", "Pengawas Sekolah (Biru) - Sesi Petang",
-                "Pengawas Pusat Sumber Sekolah (PSS) - Sesi Pagi", "Pengawas Pusat Sumber Sekolah (PSS) - Sesi Petang",
-                "Skim Pinjaman Buku Teks (SPBT) - Sesi Pagi", "Skim Pinjaman Buku Teks (SPBT) - Sesi Petang",
-                "Pembimbing Rakan Sebaya (PRS) - Sesi Pagi", "Pembimbing Rakan Sebaya (PRS) - Sesi Petang",
+                "Pengawas Sekolah Biru (Lelaki) - Sesi Pagi", "Pengawas Sekolah Biru (Lelaki) - Sesi Petang",
+                "Pengawas Sekolah Biru (Perempuan) - Sesi Pagi", "Pengawas Sekolah Biru (Perempuan) - Sesi Petang",
+                "Pusat Sumber Sekolah - Sesi Pagi", "Pusat Sumber Sekolah - Sesi Petang",
+                "Skim Pinjaman Buku Teks - Sesi Pagi", "Skim Pinjaman Buku Teks - Sesi Petang",
+                "Pembimbing Rakan Sebaya - Sesi Pagi", "Pembimbing Rakan Sebaya - Sesi Petang",
+                "Koperasi Sekolah - Sesi Pagi", "Koperasi Sekolah - Sesi Petang",
                 "Majlis Ketua Tingkatan - Sesi Pagi", "Majlis Ketua Tingkatan - Sesi Petang",
-                "Koperator Sekolah - Sesi Pagi", "Koperator Sekolah - Sesi Petang",
                 "Quarter Master - Sesi Pagi", "Quarter Master - Sesi Petang",
                 "Pengawas PPKI - Sesi Pagi", "Pengawas PPKI - Sesi Petang",
                 "Pengawas Siaraya - Sesi Pagi", "Pengawas Siaraya - Sesi Petang",
-                "Pengawas Surau - Sesi Pagi", "Pengawas Surau - Sesi Petang",
-                "Skim Lencana Anti Dadah (SLAD) - Sesi Pagi", "Skim Lencana Anti Dadah (SLAD) - Sesi Petang"
+                "Pengawas Surau - Sesi Pagi", "Pengawas Surau - Sesi Petang"
             ],
             "BADAN BERUNIFORM": [
-                "KASPA - Sesi Pagi", "KASPA - Sesi Petang", "Pengakap - Sesi Pagi", "Pengakap - Sesi Petang",
-                "Kadet Remaja Sekolah (KRS) - Sesi Pagi", "Kadet Remaja Sekolah (KRS) - Sesi Petang",
-                "Bomba - Sesi Pagi", "Bomba - Sesi Petang", "Pandu Puteri - Sesi Pagi", "Pandu Puteri - Sesi Petang",
-                "Jabatan Pengangkutan Jalan (JPJ) - Sesi Pagi", "Jabatan Pengangkutan Jalan (JPJ) - Sesi Petang",
-                "Polis - Sesi Pagi", "Polis - Sesi Petang", "Puteri Islam - Sesi Pagi", "Puteri Islam - Sesi Petang",
-                "Bulat Sabit Merah Malaysia (BSMM) - Sesi Pagi", "Bulat Sabit Merah Malaysia (BSMM) - Sesi Petang",
+                "KASPA - Sesi Pagi", "KASPA - Sesi Petang",
+                "Pengakap - Sesi Pagi", "Pengakap - Sesi Petang",
+                "KRS - Sesi Pagi", "KRS - Sesi Petang",
+                "Bomba - Sesi Pagi", "Bomba - Sesi Petang",
+                "Pandu Puteri - Sesi Pagi", "Pandu Puteri - Sesi Petang",
+                "JPJ - Sesi Pagi", "JPJ - Sesi Petang",
+                "Polis - Sesi Pagi", "Polis - Sesi Petang",
+                "Puteri Islam - Sesi Pagi", "Puteri Islam - Sesi Petang",
+                "BSSM - Bulan Sabit Merah - Sesi Pagi", "BSSM - Bulan Sabit Merah - Sesi Petang",
                 "Pengakap PPKI - Sesi Pagi", "Pengakap PPKI - Sesi Petang"
             ],
             "PERSATUAN SEKOLAH": [
-                "Bahasa Inggeris - Sesi Pagi", "Bahasa Inggeris - Sesi Petang", "Bahasa Melayu - Sesi Pagi", "Bahasa Melayu - Sesi Petang",
-                "Geografi - Sesi Pagi", "Geografi - Sesi Petang", "Pendidikan Islam - Sesi Pagi", "Pendidikan Islam - Sesi Petang",
-                "Perniagaan - Sesi Pagi", "Perniagaan - Sesi Petang", "Reka Bentuk Teknologi (RBT) - Sesi Pagi", "Reka Bentuk Teknologi (RBT) - Sesi Petang",
-                "Sejarah - Sesi Pagi", "Sejarah - Sesi Petang", "Seni Visual - Sesi Pagi", "Seni Visual - Sesi Petang",
-                "STEM - Sesi Pagi", "STEM - Sesi Petang", "Sains Rumah Tangga (SRT) - Sesi Pagi", "Sains Rumah Tangga (SRT) - Sesi Petang",
-                "Keselamatan Jalan Raya PPKI - Sesi Pagi", "Keselamatan Jalan Raya PPKI - Sesi Petang",
-                "Kelas Kemahiran Quran (KKQ) - Sesi Pagi", "Kelas Kemahiran Quran (KKQ) - Sesi Petang"
+                "Bahasa Inggeris - Sesi Pagi", "Bahasa Inggeris - Sesi Petang",
+                "Bahasa Melayu - Sesi Pagi", "Bahasa Melayu - Sesi Petang",
+                "Geografi - Sesi Pagi", "Geografi - Sesi Petang",
+                "Pendidikan Islam - Sesi Pagi", "Pendidikan Islam - Sesi Petang",
+                "Perniagaan - Sesi Pagi", "Perniagaan - Sesi Petang",
+                "RBT - Sesi Pagi", "RBT - Sesi Petang",
+                "Sejarah - Sesi Pagi", "Sejarah - Sesi Petang",
+                "Seni Visual - Sesi Pagi", "Seni Visual - Sesi Petang",
+                "STEM - Sesi Pagi", "STEM - Sesi Petang",
+                "SRT - Sains Rumah Tangga - Sesi Pagi", "SRT - Sains Rumah Tangga - Sesi Petang",
+                "Matematik - Sesi Pagi", "Matematik - Sesi Petang",
+                "Sains - Sesi Pagi", "Sains - Sesi Petang",
+                "Prinsip Perakaunan - Sesi Pagi", "Prinsip Perakaunan - Sesi Petang"
             ],
             "KELAB SEKOLAH": [
-                "Kebudayaan & Kompang - Sesi Pagi", "Kebudayaan & Kompang - Sesi Petang", "Keceriaan - Sesi Pagi", "Keceriaan - Sesi Petang",
-                "Keselamatan Jalan Raya - Sesi Pagi", "Keselamatan Jalan Raya - Sesi Petang", "Kitar Semula - Sesi Pagi", "Kitar Semula - Sesi Petang",
-                "Komputer - Sesi Pagi", "Komputer - Sesi Petang", "Koperasi - Sesi Pagi", "Koperasi - Sesi Petang",
-                "Malaysiaku & Rukunegara - Sesi Pagi", "Malaysiaku & Rukunegara - Sesi Petang", "Media & Fotografi - Sesi Pagi", "Media & Fotografi - Sesi Petang",
-                "Pencegah Jenayah - Sesi Pagi", "Pencegah Jenayah - Sesi Petang", "Robotik - Sesi Pagi", "Robotik - Sesi Petang",
-                "Kerjaya - Sesi Pagi", "Kerjaya - Sesi Petang", "ELIT - Sesi Pagi", "ELIT - Sesi Petang"
+                "Kebudayaan & Kompang - Sesi Pagi", "Kebudayaan & Kompang - Sesi Petang",
+                "Tarian - Sesi Pagi", "Tarian - Sesi Petang",
+                "Kitar Semula / Alam Sekitar - Sesi Pagi", "Kitar Semula / Alam Sekitar - Sesi Petang",
+                "Komputer - Sesi Pagi", "Komputer - Sesi Petang",
+                "Koperasi - Sesi Pagi", "Koperasi - Sesi Petang",
+                "Malaysiaku & Rukunegara - Sesi Pagi", "Malaysiaku & Rukunegara - Sesi Petang",
+                "Media & Fotografi - Sesi Pagi", "Media & Fotografi - Sesi Petang",
+                "Pencegah Jenayah - Sesi Pagi", "Pencegah Jenayah - Sesi Petang",
+                "Robotik - Sesi Pagi", "Robotik - Sesi Petang",
+                "Kerjaya - Sesi Pagi", "Kerjaya - Sesi Petang",
+                "Olahraga - Sesi Pagi", "Olahraga - Sesi Petang"
             ],
             "RUMAH SUKAN": [
-                "Merah - Sesi Pagi", "Merah - Sesi Petang", "Biru - Sesi Pagi", "Biru - Sesi Petang",
-                "Kuning - Sesi Pagi", "Kuning - Sesi Petang", "Hijau - Sesi Pagi", "Hijau - Sesi Petang",
+                "Merah - Sesi Pagi", "Merah - Sesi Petang",
+                "Biru - Sesi Pagi", "Biru - Sesi Petang",
+                "Kuning - Sesi Pagi", "Kuning - Sesi Petang",
+                "Hijau - Sesi Pagi", "Hijau - Sesi Petang",
                 "Ungu - Sesi Pagi", "Ungu - Sesi Petang"
             ],
             "SKUAD/AJK SEKOLAH": [
-                "Kebersihan, Kesihatan, Keselamatan (SKUAD 3K) - Sesi Pagi", "Kebersihan, Kesihatan, Keselamatan (SKUAD 3K) - Sesi Petang",
-                "Denggi - Sesi Pagi", "Denggi - Sesi Petang", "PJPK - Sesi Pagi", "PJPK - Sesi Petang",
-                "PPDa - Sesi Pagi", "PPDa - Sesi Petang", "Majalah - Sesi Pagi", "Majalah - Sesi Petang"
+                "Skuad 3K - Sesi Pagi", "Skuad 3K - Sesi Petang",
+                "Denggi - Sesi Pagi", "Denggi - Sesi Petang",
+                "PJPK - Sesi Pagi", "PJPK - Sesi Petang",
+                "Majalah - Sesi Pagi", "Majalah - Sesi Petang",
+                "(AJK) Sofbol - Sesi Pagi", "(AJK) Sofbol - Sesi Petang"
             ],
             "PASUKAN SEKOLAH": [
-                "Bola Sepak - Sesi Pagi", "Bola Sepak - Sesi Petang", "Bola Tampar - Sesi Pagi", "Bola Tampar - Sesi Petang",
-                "Bola Baling - Sesi Pagi", "Bola Baling - Sesi Petang", "Bola Jaring - Sesi Pagi", "Bola Jaring - Sesi Petang",
-                "Badminton - Sesi Pagi", "Badminton - Sesi Petang", "Sepak Takraw - Sesi Pagi", "Sepak Takraw - Sesi Petang",
-                "Memanah - Sesi Pagi", "Memanah - Sesi Petang", "Sofbol - Sesi Pagi", "Sofbol - Sesi Petang",
-                "Ten Pin Boling - Sesi Pagi", "Ten Pin Boling - Sesi Petang", "Olahraga PPKI - Sesi Pagi", "Olahraga PPKI - Sesi Petang",
-                "Sukan Olahraga - Sesi Pagi", "Sukan Olahraga - Sesi Petang", "Petanque - Sesi Pagi", "Petanque - Sesi Petang",
-                "Ping Pong - Sesi Pagi", "Ping Pong - Sesi Petang", "Tarian Sekolah - Sesi Pagi", "Tarian Sekolah - Sesi Petang",
-                "Kompang - Sesi Pagi", "Kompang - Sesi Petang", "Nasyid - Sesi Pagi", "Nasyid - Sesi Petang",
-                "Buletin Sekolah - Sesi Pagi", "Buletin Sekolah - Sesi Petang", "Robotik - Sesi Pagi", "Robotik - Sesi Petang",
-                "Flashmob Sekolah - Sesi Pagi", "Flashmob Sekolah - Sesi Petang", "Hoki - Sesi Pagi", "Hoki - Sesi Petang"
+                "Bola Sepak - Sesi Pagi",
+                "Bola Tampar - Sesi Pagi",
+                "Bola Baling - Sesi Pagi",
+                "Bola Jaring - Sesi Pagi",
+                "Badminton - Sesi Pagi",
+                "Sepak Takraw - Sesi Pagi",
+                "Sofbol - Sesi Pagi",
+                "Sains Sukan - Sesi Pagi",
+                "Olahraga - Sesi Pagi",
+                "Petanque - Sesi Pagi",
+                "Ping Pong - Sesi Pagi",
+                "Tarian Sekolah - Sesi Pagi",
+                "Inovasi Sekolah - Sesi Petang",
+                "Ultrass - Sesi Pagi",
+                "Robotik - Sesi Pagi",
+                "Flashmob Sekolah - Sesi Pagi",
+                "Hoki - Sesi Pagi"
             ],
             "PERMAINAN SEKOLAH": [
-                "Bola Sepak - Sesi Pagi", "Bola Sepak - Sesi Petang", "Bola Tampar - Sesi Pagi", "Bola Tampar - Sesi Petang",
-                "Bola Baling - Sesi Pagi", "Bola Baling - Sesi Petang", "Bola Jaring - Sesi Pagi", "Bola Jaring - Sesi Petang",
-                "Badminton - Sesi Pagi", "Badminton - Sesi Petang", "Sepak Takraw - Sesi Pagi", "Sepak Takraw - Sesi Petang",
-                "Memanah - Sesi Pagi", "Memanah - Sesi Petang", "Sofbol - Sesi Pagi", "Sofbol - Sesi Petang",
-                "Ten Pin Boling - Sesi Pagi", "Ten Pin Boling - Sesi Petang", "Olahraga PPKI - Sesi Pagi", "Olahraga PPKI - Sesi Petang",
-                "Sukan Olahraga - Sesi Pagi", "Sukan Olahraga - Sesi Petang", "Petanque - Sesi Pagi", "Petanque - Sesi Petang",
-                "Ping Pong - Sesi Pagi", "Ping Pong - Sesi Petang", "Tarian Sekolah - Sesi Pagi", "Tarian Sekolah - Sesi Petang",
-                "Kompang - Sesi Pagi", "Kompang - Sesi Petang", "Nasyid - Sesi Pagi", "Nasyid - Sesi Petang",
-                "Buletin Sekolah - Sesi Pagi", "Buletin Sekolah - Sesi Petang", "Robotik - Sesi Pagi", "Robotik - Sesi Petang",
-                "Flashmob Sekolah - Sesi Pagi", "Flashmob Sekolah - Sesi Petang", "Hoki - Sesi Pagi", "Hoki - Sesi Petang"
+                "Bola Sepak - Sesi Pagi", "Bola Sepak - Sesi Petang",
+                "Bola Tampar - Sesi Pagi", "Bola Tampar - Sesi Petang",
+                "Bola Baling - Sesi Pagi", "Bola Baling - Sesi Petang",
+                "Bola Jaring - Sesi Pagi", "Bola Jaring - Sesi Petang",
+                "Badminton - Sesi Pagi", "Badminton - Sesi Petang",
+                "Sepak Takraw - Sesi Pagi", "Sepak Takraw - Sesi Petang",
+                "Sukan Olahraga - Sesi Pagi", "Sukan Olahraga - Sesi Petang",
+                "Petanque - Sesi Pagi", "Petanque - Sesi Petang",
+                "Ping Pong - Sesi Pagi", "Ping Pong - Sesi Petang",
+                "Hoki - Sesi Pagi", "Hoki - Sesi Petang"
             ]
         };
 
@@ -1437,7 +1464,7 @@
 
             const fullList = databaseKumpulan[selectedCategory] || [];
             const filteredUnits = fullList
-                .filter(item => item.includes(selectedSession))
+                .filter(item => item.includes(selectedSession) || !item.includes(' - '))
                 .map(item => item.split(' - ')[0]);
 
             const uniqueUnits = [...new Set(filteredUnits)];
