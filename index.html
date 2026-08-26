@@ -1030,36 +1030,38 @@
             </div>
 
             <!-- PROPS -->
-            <div class="pose-column-box" data-pose="Props">
-                <div class="pose-header"><input type="checkbox" id="check-props"> PROPS</div>
-                <div class="pose-img-placeholder" onclick="openFullscreen('SAMPLE PROPS.jpeg', 'PROPS')">
-                    <img src="SAMPLE PROPS.jpeg" alt="PROPS">
-                </div>
-                <div class="size-qty-control-row">
-                    <span>4R</span>
-                    <div class="qty-stepper">
-                        <button type="button" class="minus-btn">-</button>
-                        <span class="qty-val" id="qty-props-4r">0</span>
-                        <button type="button" class="plus-btn">+</button>
-                    </div>
-                </div>
-                <div class="size-qty-control-row">
-                    <span>6RW</span>
-                    <div class="qty-stepper">
-                        <button type="button" class="minus-btn">-</button>
-                        <span class="qty-val" id="qty-props-6rw">0</span>
-                        <button type="button" class="plus-btn">+</button>
-                    </div>
-                </div>
-                <div class="size-qty-control-row">
-                    <span>8RW</span>
-                    <div class="qty-stepper">
-                        <button type="button" class="minus-btn">-</button>
-                        <span class="qty-val" id="qty-props-8rw">0</span>
-                        <button type="button" class="plus-btn">+</button>
-                    </div>
-                </div>
-            </div>
+<div class="pose-column-box" data-pose="Props">
+    <div class="pose-header"><input type="checkbox" id="check-props"> PROPS</div>
+    <div class="pose-img-placeholder" onclick="openFullscreen('SAMPLE PROPS.jpeg', 'PROPS')">
+        <img src="SAMPLE PROPS.jpeg" 
+             alt="PROPS" 
+             onerror="if (this.src.endsWith('.jpeg')) { this.src='SAMPLE PROPS.jpg'; } else if (this.src.endsWith('.jpg')) { this.src='SAMPLE PROPS.png'; }">
+    </div>
+    <div class="size-qty-control-row">
+        <span>4R</span>
+        <div class="qty-stepper">
+            <button type="button" class="minus-btn">-</button>
+            <span class="qty-val" id="qty-props-4r">0</span>
+            <button type="button" class="plus-btn">+</button>
+        </div>
+    </div>
+    <div class="size-qty-control-row">
+        <span>6RW</span>
+        <div class="qty-stepper">
+            <button type="button" class="minus-btn">-</button>
+            <span class="qty-val" id="qty-props-6rw">0</span>
+            <button type="button" class="plus-btn">+</button>
+        </div>
+    </div>
+    <div class="size-qty-control-row">
+        <span>8RW</span>
+        <div class="qty-stepper">
+            <button type="button" class="minus-btn">-</button>
+            <span class="qty-val" id="qty-props-8rw">0</span>
+            <button type="button" class="plus-btn">+</button>
+        </div>
+    </div>
+</div>
 
         </div>
 
