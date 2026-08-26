@@ -6,7 +6,6 @@
     <title>(2026) Borang Gambar Organisasi 2026</title>
     <style>
         :root {
-            /* Premium Dashboard Luxury Dark Theme UI */
             --bg-body: #090a10;
             --panel-bg: #171a26;
             --text-main: #ffffff;
@@ -24,7 +23,6 @@
             --card-border-active: #38bdf8;
             --success-green: #10b981;
             
-            /* Warna Saiz Cetakan */
             --color-4r: #15803d;
             --color-6rw: #1d4ed8;
             --color-8rw: #6b21a8;
@@ -151,7 +149,6 @@
             box-shadow: 0 0 0 4px rgba(226, 182, 89, 0.15);
         }
 
-        /* Sample Images Display - 3600x2400 (3:2 Ratio) */
         .sample-images-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -211,7 +208,6 @@
             text-transform: uppercase;
         }
 
-        /* Price Dashboard Cards Styles */
         .price-dashboard {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -313,21 +309,20 @@
             color: #b91c1c;
         }
 
-        /* Dashboard Grid Layout (Kategori -> Kumpulan -> Sesi) */
         .dashboard-grid {
             display: flex;
             gap: 20px;
             flex-wrap: wrap;
         }
 
-        .dash-col-1 { flex: 2; min-width: 320px; }
-        .dash-col-2 { flex: 1.5; min-width: 250px; }
-        .dash-col-3 { flex: 1.2; min-width: 200px; }
-        .dash-col-4 { flex: 3.2; min-width: 340px; }
+        .dash-col-sesi { flex: 1.2; min-width: 200px; }
+        .dash-col-cat { flex: 2; min-width: 320px; }
+        .dash-col-unit { flex: 1.5; min-width: 250px; }
+        .dash-col-pose { flex: 3.2; min-width: 340px; }
 
         @media (max-width: 1024px) {
             .dashboard-grid { flex-direction: column; }
-            .dash-col-1, .dash-col-2, .dash-col-3, .dash-col-4 { flex: 1; width: 100%; }
+            .dash-col-sesi, .dash-col-cat, .dash-col-unit, .dash-col-pose { flex: 1; width: 100%; }
         }
 
         .dash-box {
@@ -348,7 +343,6 @@
             padding-bottom: 8px;
         }
 
-        /* Grid Kategori Ikon */
         .category-icon-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -370,7 +364,6 @@
         .cat-icon-placeholder { font-size: 1.8rem; margin-bottom: 5px; }
         .cat-title-text { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; }
 
-        /* Sesi UI */
         .sesi-container {
             display: flex;
             flex-direction: column;
@@ -395,7 +388,6 @@
         .sesi-icon { font-size: 1.6rem; }
         .sesi-text { font-size: 0.9rem; font-weight: 700; text-transform: uppercase; }
 
-        /* Pose UI - Nisbah 3600x2400 (3:2) */
         .pose-flex-container {
             display: flex;
             gap: 10px;
@@ -479,7 +471,6 @@
         .qty-stepper button:hover { background-color: #2e3446; }
         .qty-stepper span { width: 24px; text-align: center; font-weight: 700; color: #fff; }
 
-        /* Live Widget Summary */
         .live-widget-panel {
             background-color: rgba(30,41,59,0.5);
             border: 1px solid var(--border-solid);
@@ -518,7 +509,6 @@
         .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
         @media (max-width: 800px) { .grid-3 { grid-template-columns: 1fr; } }
 
-        /* QR Section Grid */
         .qr-section-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -586,7 +576,6 @@
             background: var(--alert-red-bg);
         }
 
-        /* Cart / Confirmation Table */
         .cart-table {
             width: 100%;
             border-collapse: collapse;
@@ -673,7 +662,6 @@
         .submit-btn:hover { background-color: #ffffff; }
         .submit-btn:disabled { background: #334155; color: #64748b; cursor: not-allowed; }
 
-        /* Fullscreen Lightbox Modal */
         .image-modal {
             display: none;
             position: fixed;
@@ -881,7 +869,6 @@
                     </a>
                 </div>
 
-                <!-- Rujukan Gambar Interaktif 3600x2400 -->
                 <div class="sample-images-grid">
                     <div class="sample-item">
                         <div class="sample-img-wrapper" onclick="openFullscreen('FormalOrganisasi.jpeg', 'FORMAL')">
@@ -980,7 +967,7 @@
                     Sila rujuk link gambar terlebih dahulu di "Google Drive" sebelum membuat pembelian.
                 </div>
                 <div style="font-size: 1.05rem; color: var(--text-muted); margin-bottom: 20px; background: rgba(255,255,255,0.03); padding: 12px 18px; border-radius: 6px; border-left: 4px solid var(--border-solid); font-weight: 600;">
-                    Sila pilih badan organisasi yang anda ingin beli, sila pastikan sesi persekolahan adalah betul.
+                    Sila pastikan pilihan sesi dan badan organisasi adalah betul.
                 </div>
 
                 <!-- D (1) Ruangan Kumpulan Manual / Tidak Tersenarai -->
@@ -996,10 +983,27 @@
 
                 <div class="dashboard-grid">
                     
-                    <!-- 1. Pilih Kategori -->
-                    <div class="dash-col-1">
+                    <!-- 1. Pilih Sesi -->
+                    <div class="dash-col-sesi">
                         <div class="dash-box">
-                            <div class="dash-box-title">1. Pilih Kategori</div>
+                            <div class="dash-box-title">1. Pilih Sesi</div>
+                            <div class="sesi-container">
+                                <div class="sesi-card active" data-value="Sesi Pagi">
+                                    <div class="sesi-icon">☀️</div>
+                                    <div class="sesi-text">Sesi Pagi</div>
+                                </div>
+                                <div class="sesi-card" data-value="Sesi Petang">
+                                    <div class="sesi-icon">🌙</div>
+                                    <div class="sesi-text">Sesi Petang</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. Pilih Kategori -->
+                    <div class="dash-col-cat">
+                        <div class="dash-box">
+                            <div class="dash-box-title">2. Pilih Kategori</div>
                             <div class="category-icon-grid" id="categoryIconGrid">
                                 <div class="cat-icon-card" data-value="GURU-GURU"><div class="cat-icon-placeholder">👨‍🏫</div><div class="cat-title-text">Guru</div></div>
                                 <div class="cat-icon-card" data-value="BADAN PENGAWAS"><div class="cat-icon-placeholder">🛡️</div><div class="cat-title-text">Pengawas</div></div>
@@ -1014,35 +1018,18 @@
                         </div>
                     </div>
 
-                    <!-- 2. Kumpulan -->
-                    <div class="dash-col-2">
+                    <!-- 3. Kumpulan -->
+                    <div class="dash-col-unit">
                         <div class="dash-box">
-                            <div class="dash-box-title">2. Kumpulan</div>
+                            <div class="dash-box-title">3. Kumpulan</div>
                             <select id="select-unit-nama" style="padding: 12px; font-size: 1rem;">
                                 <option value="" disabled selected>Sila Pilih Kategori Dahulu</option>
                             </select>
                         </div>
                     </div>
 
-                    <!-- 3. Pilih Sesi -->
-                    <div class="dash-col-3">
-                        <div class="dash-box">
-                            <div class="dash-box-title">3. Sesi</div>
-                            <div class="sesi-container">
-                                <div class="sesi-card active" data-value="Sesi Pagi">
-                                    <div class="sesi-icon">☀️</div>
-                                    <div class="sesi-text">Sesi Pagi</div>
-                                </div>
-                                <div class="sesi-card" data-value="Sesi Petang">
-                                    <div class="sesi-icon">🌙</div>
-                                    <div class="sesi-text">Sesi Petang</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                     <!-- 4. Pilih Pose, Saiz & Kuantiti -->
-                    <div class="dash-col-4">
+                    <div class="dash-col-pose">
                         <div class="dash-box">
                             <div class="dash-box-title">4. Pilih Pose, Saiz &amp; Kuantiti</div>
                             <div class="pose-flex-container">
@@ -1191,7 +1178,6 @@
 
                 <button type="button" class="cart-action-btn danger" id="clearCartBtn">🗑️ Kosongkan Pilihan</button>
 
-                <!-- Peringatan Diserap Masuk ke Sini -->
                 <div class="payment-instruction highlight-red" style="margin-top: 25px;">
                     <strong>PERINGATAN :</strong><br>
                     • Sila pastikan maklumat yang diisikan adalah betul.<br>
@@ -1314,7 +1300,6 @@
     </div>
 
     <script>
-        // Fullscreen Lightbox Functionality
         const imageModal = document.getElementById('imageModal');
         const modalImage = document.getElementById('modalImage');
         const modalCaption = document.getElementById('modalCaption');
@@ -1458,15 +1443,6 @@
         const grandTotalBox = document.getElementById('grand-total-box');
         const hiddenCartData = document.getElementById('hiddenCartData');
 
-        catCards.forEach(card => {
-            card.addEventListener('click', function() {
-                catCards.forEach(c => c.classList.remove('active'));
-                this.classList.add('active');
-                selectedCategory = this.getAttribute('data-value');
-                filterUnitOptions();
-            });
-        });
-
         sesiCards.forEach(card => {
             card.addEventListener('click', function() {
                 sesiCards.forEach(s => s.classList.remove('active'));
@@ -1476,8 +1452,17 @@
             });
         });
 
+        catCards.forEach(card => {
+            card.addEventListener('click', function() {
+                catCards.forEach(c => c.classList.remove('active'));
+                this.classList.add('active');
+                selectedCategory = this.getAttribute('data-value');
+                filterUnitOptions();
+            });
+        });
+
         function filterUnitOptions() {
-            unitSelect.innerHTML = '<option value="" disabled selected>📦 KUMPULAN </option>';
+            unitSelect.innerHTML = '<option value="" disabled selected>📦 PILIH KUMPULAN</option>';
             if (!selectedCategory) return;
 
             const fullList = databaseKumpulan[selectedCategory] || [];
