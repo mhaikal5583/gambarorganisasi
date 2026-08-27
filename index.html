@@ -871,22 +871,22 @@
 
                 <div class="sample-images-grid">
                     <div class="sample-item">
-                        <div class="sample-img-wrapper" onclick="openFullscreen('FormalOrganisasi.jpeg', 'FORMAL')">
-                            <img src="FormalOrganisasi.jpeg" alt="FORMAL">
+                        <div class="sample-img-wrapper" onclick="openFullscreen('SAMPLE FORMAL.jpeg', 'FORMAL')">
+                            <img src="SAMPLE FORMAL.jpeg" alt="FORMAL">
                             <div class="zoom-hint">🔍 Lihat Penuh</div>
                         </div>
                         <span>FORMAL</span>
                     </div>
                     <div class="sample-item">
-                        <div class="sample-img-wrapper" onclick="openFullscreen('FreestyleOrganisasi.jpeg', 'FREESTYLE')">
-                            <img src="FreestyleOrganisasi.jpeg" alt="FREESTYLE">
+                        <div class="sample-img-wrapper" onclick="openFullscreen('SAMPLE FREESTYLE.jpeg', 'FREESTYLE')">
+                            <img src="SAMPLE FREESTYLE.jpeg" alt="FREESTYLE">
                             <div class="zoom-hint">🔍 Lihat Penuh</div>
                         </div>
                         <span>FREESTYLE</span>
                     </div>
                     <div class="sample-item">
-                        <div class="sample-img-wrapper" onclick="openFullscreen('PropsOrganisasi.jpeg', 'PROPS')">
-                            <img src="PropsOrganisasi.jpeg" alt="PROPS">
+                        <div class="sample-img-wrapper" onclick="openFullscreen('SAMPLE PROPS.jpeg', 'PROPS')">
+                            <img src="SAMPLE PROPS.jpeg" alt="PROPS" onerror="if (this.src.endsWith('.jpeg')) { this.src='SAMPLE PROPS.jpg'; } else if (this.src.endsWith('.jpg')) { this.src='SAMPLE PROPS.png'; }">
                             <div class="zoom-hint">🔍 Lihat Penuh</div>
                         </div>
                         <span>PROPS</span>
@@ -959,123 +959,192 @@
                 </div>
             </div>
 
-            <!-- 4. Pilih Pose, Saiz & Kuantiti -->
-<div class="dash-col-pose">
-    <div class="dash-box">
-        <div class="dash-box-title">4. Pilih Pose, Saiz &amp; Kuantiti</div>
-        <div class="pose-flex-container">
-            
-            <!-- FORMAL -->
-            <div class="pose-column-box" data-pose="Formal">
-                <div class="pose-header"><input type="checkbox" id="check-formal"> FORMAL</div>
-                <div class="pose-img-placeholder" onclick="openFullscreen('SAMPLE FORMAL.jpeg', 'FORMAL')">
-                    <img src="SAMPLE FORMAL.jpeg" alt="FORMAL">
+            <!-- (4) D. PEMBELIAN GAMBAR -->
+            <div class="section-card">
+                <div class="section-title">D. PEMBELIAN GAMBAR</div>
+                
+                <div style="font-size: 1.05rem; color: var(--gold-accent); margin-bottom: 12px; background: var(--gold-light); padding: 12px 18px; border-radius: 6px; border-left: 4px solid var(--gold-accent); font-weight: 600;">
+                    Sila rujuk link gambar terlebih dahulu di "Google Drive" sebelum membuat pembelian.
                 </div>
-                <div class="size-qty-control-row">
-                    <span>4R</span>
-                    <div class="qty-stepper">
-                        <button type="button" class="minus-btn">-</button>
-                        <span class="qty-val" id="qty-formal-4r">0</span>
-                        <button type="button" class="plus-btn">+</button>
-                    </div>
+                <div style="font-size: 1.05rem; color: var(--text-muted); margin-bottom: 20px; background: rgba(255,255,255,0.03); padding: 12px 18px; border-radius: 6px; border-left: 4px solid var(--border-solid); font-weight: 600;">
+                    Sila pastikan pilihan sesi dan badan organisasi adalah betul.
                 </div>
-                <div class="size-qty-control-row">
-                    <span>6RW</span>
-                    <div class="qty-stepper">
-                        <button type="button" class="minus-btn">-</button>
-                        <span class="qty-val" id="qty-formal-6rw">0</span>
-                        <button type="button" class="plus-btn">+</button>
-                    </div>
-                </div>
-                <div class="size-qty-control-row">
-                    <span>8RW</span>
-                    <div class="qty-stepper">
-                        <button type="button" class="minus-btn">-</button>
-                        <span class="qty-val" id="qty-formal-8rw">0</span>
-                        <button type="button" class="plus-btn">+</button>
-                    </div>
-                </div>
-            </div>
 
-            <!-- FREESTYLE -->
-            <div class="pose-column-box" data-pose="Freestyle">
-                <div class="pose-header"><input type="checkbox" id="check-freestyle"> FREESTYLE</div>
-                <div class="pose-img-placeholder" onclick="openFullscreen('SAMPLE FREESTYLE.jpeg', 'FREESTYLE')">
-                    <img src="SAMPLE FREESTYLE.jpeg" alt="FREESTYLE">
-                </div>
-                <div class="size-qty-control-row">
-                    <span>4R</span>
-                    <div class="qty-stepper">
-                        <button type="button" class="minus-btn">-</button>
-                        <span class="qty-val" id="qty-freestyle-4r">0</span>
-                        <button type="button" class="plus-btn">+</button>
+                <!-- D (1) Ruangan Kumpulan Manual / Tidak Tersenarai -->
+                <div style="background-color: var(--input-bg); border: 1px dashed var(--gold-accent); border-radius: 8px; padding: 16px 20px; margin-bottom: 25px;">
+                    <label for="manual-kumpulan-nama" style="font-size: 1rem; color: var(--gold-accent); margin-bottom: 6px;">
+                        Sekirannya nama kumpulan tidak disenaraikan dalam pilihan, guru/penjaga/murid boleh isikan nama kumpulan secara "manual" di ruangan di bawah.
+                    </label>
+                    <div style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 12px;">
+                        Contoh : Inovasi Petang / Kadet Remaja Sekolah Pagi.
                     </div>
+                    <input type="text" id="manual-kumpulan-nama" name="manual-kumpulan-nama" placeholder="Masukkan nama kumpulan secara manual di sini jika tiada dalam senarai">
                 </div>
-                <div class="size-qty-control-row">
-                    <span>6RW</span>
-                    <div class="qty-stepper">
-                        <button type="button" class="minus-btn">-</button>
-                        <span class="qty-val" id="qty-freestyle-6rw">0</span>
-                        <button type="button" class="plus-btn">+</button>
+
+                <div class="dashboard-grid">
+                    
+                    <!-- 1. Pilih Sesi -->
+                    <div class="dash-col-sesi">
+                        <div class="dash-box">
+                            <div class="dash-box-title">1. Pilih Sesi</div>
+                            <div class="sesi-container">
+                                <div class="sesi-card active" data-value="Sesi Pagi">
+                                    <div class="sesi-icon">☀️</div>
+                                    <div class="sesi-text">Sesi Pagi</div>
+                                </div>
+                                <div class="sesi-card" data-value="Sesi Petang">
+                                    <div class="sesi-icon">🌙</div>
+                                    <div class="sesi-text">Sesi Petang</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="size-qty-control-row">
-                    <span>8RW</span>
-                    <div class="qty-stepper">
-                        <button type="button" class="minus-btn">-</button>
-                        <span class="qty-val" id="qty-freestyle-8rw">0</span>
-                        <button type="button" class="plus-btn">+</button>
+
+                    <!-- 2. Pilih Kategori -->
+                    <div class="dash-col-cat">
+                        <div class="dash-box">
+                            <div class="dash-box-title">2. Pilih Kategori</div>
+                            <div class="category-icon-grid" id="categoryIconGrid">
+                                <div class="cat-icon-card" data-value="GURU-GURU"><div class="cat-icon-placeholder">👨‍🏫</div><div class="cat-title-text">Guru</div></div>
+                                <div class="cat-icon-card" data-value="BADAN PENGAWAS"><div class="cat-icon-placeholder">🛡️</div><div class="cat-title-text">Pengawas</div></div>
+                                <div class="cat-icon-card" data-value="BADAN BERUNIFORM"><div class="cat-icon-placeholder">🎖️</div><div class="cat-title-text">Uniform</div></div>
+                                <div class="cat-icon-card" data-value="PERSATUAN SEKOLAH"><div class="cat-icon-placeholder">🌐</div><div class="cat-title-text">Persatuan</div></div>
+                                <div class="cat-icon-card" data-value="KELAB SEKOLAH"><div class="cat-icon-placeholder">🎨</div><div class="cat-title-text">Kelab</div></div>
+                                <div class="cat-icon-card" data-value="RUMAH SUKAN"><div class="cat-icon-placeholder">🚩</div><div class="cat-title-text">Rumah Sukan</div></div>
+                                <div class="cat-icon-card" data-value="SKUAD/AJK SEKOLAH"><div class="cat-icon-placeholder">🧬</div><div class="cat-title-text">Skuad/AJK</div></div>
+                                <div class="cat-icon-card" data-value="PASUKAN SEKOLAH"><div class="cat-icon-placeholder">🏆</div><div class="cat-title-text">Pasukan</div></div>
+                                <div class="cat-icon-card" data-value="PERMAINAN SEKOLAH"><div class="cat-icon-placeholder">⚽</div><div class="cat-title-text">Permainan</div></div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
 
-            <!-- PROPS -->
-<div class="pose-column-box" data-pose="Props">
-    <div class="pose-header"><input type="checkbox" id="check-props"> PROPS</div>
-    <div class="pose-img-placeholder" onclick="openFullscreen('SAMPLE PROPS.jpeg', 'PROPS')">
-        <img src="SAMPLE PROPS.jpeg" 
-             alt="PROPS" 
-             onerror="if (this.src.endsWith('.jpeg')) { this.src='SAMPLE PROPS.jpg'; } else if (this.src.endsWith('.jpg')) { this.src='SAMPLE PROPS.png'; }">
-    </div>
-    <div class="size-qty-control-row">
-        <span>4R</span>
-        <div class="qty-stepper">
-            <button type="button" class="minus-btn">-</button>
-            <span class="qty-val" id="qty-props-4r">0</span>
-            <button type="button" class="plus-btn">+</button>
-        </div>
-    </div>
-    <div class="size-qty-control-row">
-        <span>6RW</span>
-        <div class="qty-stepper">
-            <button type="button" class="minus-btn">-</button>
-            <span class="qty-val" id="qty-props-6rw">0</span>
-            <button type="button" class="plus-btn">+</button>
-        </div>
-    </div>
-    <div class="size-qty-control-row">
-        <span>8RW</span>
-        <div class="qty-stepper">
-            <button type="button" class="minus-btn">-</button>
-            <span class="qty-val" id="qty-props-8rw">0</span>
-            <button type="button" class="plus-btn">+</button>
-        </div>
-    </div>
-</div>
+                    <!-- 3. Kumpulan -->
+                    <div class="dash-col-unit">
+                        <div class="dash-box">
+                            <div class="dash-box-title">3. Kumpulan</div>
+                            <select id="select-unit-nama" style="padding: 12px; font-size: 1rem;">
+                                <option value="" disabled selected>Sila Pilih Kategori Dahulu</option>
+                            </select>
+                        </div>
+                    </div>
 
-        </div>
+                    <!-- 4. Pilih Pose, Saiz & Kuantiti -->
+                    <div class="dash-col-pose">
+                        <div class="dash-box">
+                            <div class="dash-box-title">4. Pilih Pose, Saiz &amp; Kuantiti</div>
+                            <div class="pose-flex-container">
+                                
+                                <!-- FORMAL -->
+                                <div class="pose-column-box" data-pose="Formal">
+                                    <div class="pose-header"><input type="checkbox" id="check-formal"> FORMAL</div>
+                                    <div class="pose-img-placeholder" onclick="openFullscreen('SAMPLE FORMAL.jpeg', 'FORMAL')">
+                                        <img src="SAMPLE FORMAL.jpeg" alt="FORMAL">
+                                    </div>
+                                    <div class="size-qty-control-row">
+                                        <span>4R</span>
+                                        <div class="qty-stepper">
+                                            <button type="button" class="minus-btn">-</button>
+                                            <span class="qty-val" id="qty-formal-4r">0</span>
+                                            <button type="button" class="plus-btn">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="size-qty-control-row">
+                                        <span>6RW</span>
+                                        <div class="qty-stepper">
+                                            <button type="button" class="minus-btn">-</button>
+                                            <span class="qty-val" id="qty-formal-6rw">0</span>
+                                            <button type="button" class="plus-btn">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="size-qty-control-row">
+                                        <span>8RW</span>
+                                        <div class="qty-stepper">
+                                            <button type="button" class="minus-btn">-</button>
+                                            <span class="qty-val" id="qty-formal-8rw">0</span>
+                                            <button type="button" class="plus-btn">+</button>
+                                        </div>
+                                    </div>
+                                </div>
 
-        <div class="live-widget-panel">
-            <div class="live-widget-header">Maklumat pilihan tempahan</div>
-            <div class="live-widget-row"><span>4R : <span id="widget-4r-count">0</span> keping</span><span id="widget-4r-price">RM0.00</span></div>
-            <div class="live-widget-row"><span>6RW : <span id="widget-6rw-count">0</span> keping</span><span id="widget-6rw-price">RM0.00</span></div>
-            <div class="live-widget-row"><span>8RW : <span id="widget-8rw-count">0</span> keping</span><span id="widget-8rw-price">RM0.00</span></div>
-            <div class="live-widget-row total"><span>JUMLAH</span><span id="widget-total-price">RM0.00</span></div>
-        </div>
+                                <!-- FREESTYLE -->
+                                <div class="pose-column-box" data-pose="Freestyle">
+                                    <div class="pose-header"><input type="checkbox" id="check-freestyle"> FREESTYLE</div>
+                                    <div class="pose-img-placeholder" onclick="openFullscreen('SAMPLE FREESTYLE.jpeg', 'FREESTYLE')">
+                                        <img src="SAMPLE FREESTYLE.jpeg" alt="FREESTYLE">
+                                    </div>
+                                    <div class="size-qty-control-row">
+                                        <span>4R</span>
+                                        <div class="qty-stepper">
+                                            <button type="button" class="minus-btn">-</button>
+                                            <span class="qty-val" id="qty-freestyle-4r">0</span>
+                                            <button type="button" class="plus-btn">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="size-qty-control-row">
+                                        <span>6RW</span>
+                                        <div class="qty-stepper">
+                                            <button type="button" class="minus-btn">-</button>
+                                            <span class="qty-val" id="qty-freestyle-6rw">0</span>
+                                            <button type="button" class="plus-btn">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="size-qty-control-row">
+                                        <span>8RW</span>
+                                        <div class="qty-stepper">
+                                            <button type="button" class="minus-btn">-</button>
+                                            <span class="qty-val" id="qty-freestyle-8rw">0</span>
+                                            <button type="button" class="plus-btn">+</button>
+                                        </div>
+                                    </div>
+                                </div>
 
-        <button type="button" class="cart-btn" id="addToCartBtn">📥 Tambah Ke Pilihan</button>
-    </div>
-</div>
+                                <!-- PROPS -->
+                                <div class="pose-column-box" data-pose="Props">
+                                    <div class="pose-header"><input type="checkbox" id="check-props"> PROPS</div>
+                                    <div class="pose-img-placeholder" onclick="openFullscreen('SAMPLE PROPS.jpeg', 'PROPS')">
+                                        <img src="SAMPLE PROPS.jpeg" 
+                                             alt="PROPS" 
+                                             onerror="if (this.src.endsWith('.jpeg')) { this.src='SAMPLE PROPS.jpg'; } else if (this.src.endsWith('.jpg')) { this.src='SAMPLE PROPS.png'; }">
+                                    </div>
+                                    <div class="size-qty-control-row">
+                                        <span>4R</span>
+                                        <div class="qty-stepper">
+                                            <button type="button" class="minus-btn">-</button>
+                                            <span class="qty-val" id="qty-props-4r">0</span>
+                                            <button type="button" class="plus-btn">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="size-qty-control-row">
+                                        <span>6RW</span>
+                                        <div class="qty-stepper">
+                                            <button type="button" class="minus-btn">-</button>
+                                            <span class="qty-val" id="qty-props-6rw">0</span>
+                                            <button type="button" class="plus-btn">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="size-qty-control-row">
+                                        <span>8RW</span>
+                                        <div class="qty-stepper">
+                                            <button type="button" class="minus-btn">-</button>
+                                            <span class="qty-val" id="qty-props-8rw">0</span>
+                                            <button type="button" class="plus-btn">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="live-widget-panel">
+                                <div class="live-widget-header">Maklumat pilihan tempahan</div>
+                                <div class="live-widget-row"><span>4R : <span id="widget-4r-count">0</span> keping</span><span id="widget-4r-price">RM0.00</span></div>
+                                <div class="live-widget-row"><span>6RW : <span id="widget-6rw-count">0</span> keping</span><span id="widget-6rw-price">RM0.00</span></div>
+                                <div class="live-widget-row"><span>8RW : <span id="widget-8rw-count">0</span> keping</span><span id="widget-8rw-price">RM0.00</span></div>
+                                <div class="live-widget-row total"><span>JUMLAH</span><span id="widget-total-price">RM0.00</span></div>
+                            </div>
+
+                            <button type="button" class="cart-btn" id="addToCartBtn">📥 Tambah Ke Pilihan</button>
+                        </div>
+                    </div>
 
                 </div>
             </div>
@@ -1263,7 +1332,8 @@
                 "Pentadbir - Sesi Pagi", "Pentadbir - Sesi Petang", "PPKI - Sesi Pagi", "PPKI - Sesi Petang",
                 "AJK KOKO - Sesi Pagi", "AJK KOKO - Sesi Petang", "AJK HEM - Sesi Pagi", "AJK HEM - Sesi Petang",
                 "Kurikulum - Sesi Pagi", "Kurikulum - Sesi Petang", "Guru - Sesi Pagi", "Guru - Sesi Petang",
-                "Kaunseling - Sesi Pagi", "Kaunseling - Sesi Petang", "AKP - Sesi Pagi", "AKP - Sesi Petang"],
+                "Kaunseling - Sesi Pagi", "Kaunseling - Sesi Petang", "AKP - Sesi Pagi", "AKP - Sesi Petang"
+            ],
             "BADAN PENGAWAS": [
                 "Pengawas Sekolah Biru (Lelaki) - Sesi Pagi", "Pengawas Sekolah Biru (Lelaki) - Sesi Petang",
                 "Pengawas Sekolah Biru (Perempuan) - Sesi Pagi", "Pengawas Sekolah Biru (Perempuan) - Sesi Petang",
